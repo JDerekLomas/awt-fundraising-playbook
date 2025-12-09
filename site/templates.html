@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Templates - AWT Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>AWT Playbook</h2>
+            <p class="tagline">Fundraising Campaign</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="prospects.html">Prospect Database</a></li>
+            <li><a href="foundations.html">Foundations & Grants</a></li>
+            <li><a href="corporate.html">Corporate Sponsors</a></li>
+            <li><a href="templates.html" class="active">Email Templates</a></li>
+            <li><a href="strategy.html">Strategy Guide</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <div class="campaign-goal">
+            <h4>Campaign Goal</h4>
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%"></div>
+            </div>
+            <p class="goal-text">$0 / $500,000</p>
+        </div>
+    </nav>
+
+    <main class="content">
+        <header class="page-header">
+            <h1>Email Templates</h1>
+            <p class="subtitle">Ready-to-use outreach templates for different donor segments</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTemplate('major-donor')">Major Donor</button>
+            <button class="tab" onclick="showTemplate('academic')">Academic</button>
+            <button class="tab" onclick="showTemplate('tech')">Tech/AI</button>
+            <button class="tab" onclick="showTemplate('esoteric')">Esoteric</button>
+            <button class="tab" onclick="showTemplate('foundation')">Foundation LOI</button>
+            <button class="tab" onclick="showTemplate('corporate')">Corporate</button>
+            <button class="tab" onclick="showTemplate('followup')">Follow-Up</button>
+            <button class="tab" onclick="showTemplate('thankyou')">Thank You</button>
+        </div>
+
+        <!-- Major Donor Template -->
+        <div id="template-major-donor" class="template-section">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Major Donor Outreach</h2>
+                    <button class="copy-btn" onclick="copyTemplate('major-donor')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">For individual donors with $10K+ capacity</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="An invitation to unlock 500 years of hidden wisdom" id="subject-major-donor">
+                </div>
+
+                <div class="template-content" id="content-major-donor">Dear [Name],
+
+I'm reaching out because of your demonstrated commitment to [cultural preservation / humanities scholarship / the esoteric tradition / AI ethics].
+
+The Ancient Wisdom Trust is undertaking an unprecedented project: digitizing and translating 5,000 rare NeoLatin texts from the Renaissance—books that shaped Copernicus, Newton, and the entire Western intellectual tradition, yet remain inaccessible to scholars and the public.
+
+Here's what few people realize: 95% of Renaissance books have never been translated. 70% haven't even been digitized. They're locked away, deteriorating, their wisdom lost.
+
+We're changing that. Operating from the Embassy of the Free Mind in Amsterdam—home to the UNESCO-recognized Bibliotheca Philosophica Hermetica—we're using contemporary AI to translate Latin texts at a scale previously impossible.
+
+I'd welcome the opportunity to share more about this work with you. Would you have 20 minutes for a call in the coming weeks?
+
+Warm regards,
+
+[Your Name]
+[Title]
+Ancient Wisdom Trust
+
+P.S. I'd be happy to send you a translated excerpt from one of our texts—perhaps a never-before-translated passage from Marsilio Ficino or Cornelius Agrippa. Just say the word.</div>
+            </div>
+        </div>
+
+        <!-- Academic Template -->
+        <div id="template-academic" class="template-section hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Academic/Scholarly Outreach</h2>
+                    <button class="copy-btn" onclick="copyTemplate('academic')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">For professors, researchers, librarians</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="Access Renaissance texts you've only read about in footnotes" id="subject-academic">
+                </div>
+
+                <div class="template-content" id="content-academic">Dear Professor [Name],
+
+Your work on [specific research area] caught my attention, and I wanted to introduce you to a project that may be relevant to your research.
+
+The Ancient Wisdom Trust is digitizing and translating 5,000 NeoLatin texts from the Bibliotheca Philosophica Hermetica in Amsterdam—the world's premier collection of Hermetic, alchemical, and esoteric works. Many of these texts have never been translated; some have never been digitized at all.
+
+Our goal is to make these works freely accessible to scholars like yourself.
+
+We're currently raising $500,000 to complete this initiative, and we're building a community of academic advisors and supporters who recognize the value of this work.
+
+Would you be open to a brief conversation about how this project might support your research—and how we might support each other?
+
+Best regards,
+
+[Your Name]
+[Title]
+Ancient Wisdom Trust</div>
+            </div>
+        </div>
+
+        <!-- Tech/AI Template -->
+        <div id="template-tech" class="template-section hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Tech/AI Community Outreach</h2>
+                    <button class="copy-btn" onclick="copyTemplate('tech')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">For AI researchers, tech executives</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="Training AI on Renaissance wisdom, not just Reddit" id="subject-tech">
+                </div>
+
+                <div class="template-content" id="content-tech">Hi [Name],
+
+Quick question: What if we could train AI on the best of human thought, not just what happened to make it online?
+
+I'm with the Ancient Wisdom Trust, and we're doing something that might interest you: using AI to translate 5,000 rare Renaissance Latin texts—books by Ficino, Bruno, Agrippa, Paracelsus, and other thinkers who shaped the Western intellectual tradition.
+
+Here's the thing: 95% of Renaissance books lack translations. The AI systems being built today are learning from a radically incomplete picture of human knowledge.
+
+We're working to fix that. And we think the tech community should be part of this effort—not just as funders, but as partners who understand why training data matters.
+
+Would love to connect if this resonates.
+
+[Your Name]
+Ancient Wisdom Trust</div>
+            </div>
+        </div>
+
+        <!-- Esoteric Template -->
+        <div id="template-esoteric" class="template-section hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Esoteric/Spiritual Community</h2>
+                    <button class="copy-btn" onclick="copyTemplate('esoteric')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">For Masonic, Rosicrucian, Theosophical organizations</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="The source texts of the Western Mystery Tradition need your help" id="subject-esoteric">
+                </div>
+
+                <div class="template-content" id="content-esoteric">Dear [Name],
+
+I'm writing to you as a fellow student of the Western esoteric tradition.
+
+You may know of the Bibliotheca Philosophica Hermetica in Amsterdam—home to 25,000+ rare texts on alchemy, hermeticism, Kabbalah, Rosicrucianism, and the mystical arts. It's a UNESCO-recognized treasure, the greatest collection of its kind in the world.
+
+What you may not know: the vast majority of these texts have never been translated. They exist only in Latin, accessible to a handful of specialists. The wisdom of the ages remains locked away.
+
+The Ancient Wisdom Trust is changing that. We're digitizing and translating 5,000 of these texts, making them available to seekers, scholars, and the curious public.
+
+This is the work of our generation: preserving and transmitting the tradition for those who will come after us.
+
+I'd be honored to tell you more about how you can be part of this effort.
+
+In the Light,
+
+[Your Name]
+Ancient Wisdom Trust</div>
+            </div>
+        </div>
+
+        <!-- Foundation LOI Template -->
+        <div id="template-foundation" class="template-section hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Foundation Letter of Inquiry</h2>
+                    <button class="copy-btn" onclick="copyTemplate('foundation')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">Initial inquiry to foundation program officers</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="Letter of Inquiry - Renaissance Text Digitization Project" id="subject-foundation">
+                </div>
+
+                <div class="template-content" id="content-foundation">Dear [Program Officer Name],
+
+I am writing on behalf of the Ancient Wisdom Trust to inquire about [Foundation Name]'s interest in supporting a significant cultural preservation and digital humanities initiative.
+
+PROJECT SUMMARY:
+The Ancient Wisdom Trust seeks to digitize and translate 5,000 rare NeoLatin texts from the Renaissance (1450-1700), drawn from the UNESCO-recognized Bibliotheca Philosophica Hermetica in Amsterdam. These texts—spanning hermeticism, alchemy, early science, and humanist philosophy—shaped the intellectual foundations of the modern world yet remain largely inaccessible.
+
+THE NEED:
+• 95% of Renaissance books lack translations
+• 70% of books from 1450-1700 remain undigitized
+• These texts are deteriorating and at risk of permanent loss
+• Scholars lack access to primary sources essential for research
+
+OUR SOLUTION:
+Using state-of-the-art digitization and AI-assisted translation, we can preserve these texts and make them freely accessible to scholars and the public at unprecedented scale and speed.
+
+REQUEST:
+We are seeking a grant of $[amount] over [timeframe] to support [specific project component].
+
+I would welcome the opportunity to discuss this initiative further and provide a full proposal if appropriate.
+
+Respectfully,
+
+[Your Name]
+[Title]
+Ancient Wisdom Trust
+[Contact Information]</div>
+            </div>
+        </div>
+
+        <!-- Corporate Template -->
+        <div id="template-corporate" class="template-section hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Corporate Sponsorship Outreach</h2>
+                    <button class="copy-btn" onclick="copyTemplate('corporate')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">For corporate partnerships team</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="Partnership opportunity: Preserving Renaissance wisdom for the AI age" id="subject-corporate">
+                </div>
+
+                <div class="template-content" id="content-corporate">Dear [Name],
+
+I'm reaching out to explore a potential partnership between [Company] and the Ancient Wisdom Trust.
+
+We're undertaking a project at the intersection of cultural preservation and artificial intelligence: digitizing and translating 5,000 rare Renaissance texts—works that shaped the intellectual foundations of the modern world but remain inaccessible to most.
+
+WHY THIS MATTERS FOR [COMPANY]:
+• [For AI companies]: Training data that includes humanity's deepest thinking, not just recent web content
+• [For tech companies]: Alignment with cultural preservation and digital humanities
+• [For luxury brands]: Association with the highest form of cultural patronage
+• [For publishing]: Access to a pipeline of never-before-translated works
+
+PARTNERSHIP OPPORTUNITIES INCLUDE:
+• Naming sponsorship of translated volumes
+• Co-branded digital access platform
+• Exclusive events at the Embassy of the Free Mind in Amsterdam
+• Joint press and media opportunities
+
+I'd welcome a conversation about how a partnership might serve both our organizations.
+
+Best regards,
+
+[Your Name]
+[Title]
+Ancient Wisdom Trust</div>
+            </div>
+        </div>
+
+        <!-- Follow-Up Template -->
+        <div id="template-followup" class="template-section hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Follow-Up After No Response</h2>
+                    <button class="copy-btn" onclick="copyTemplate('followup')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">Send 7-10 days after initial outreach</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="Following up: Renaissance texts project" id="subject-followup">
+                </div>
+
+                <div class="template-content" id="content-followup">Dear [Name],
+
+I wanted to follow up on my earlier message about the Ancient Wisdom Trust's work digitizing Renaissance texts.
+
+I understand you're busy, so I'll keep this brief: we're making real progress. In the past month alone, we've [specific recent achievement].
+
+If you have any interest in learning more—whether as a potential supporter, advisor, or simply a curious observer—I'd welcome a 15-minute conversation at your convenience.
+
+If this isn't the right time, no worries at all. I appreciate your consideration.
+
+Best,
+
+[Your Name]</div>
+            </div>
+        </div>
+
+        <!-- Thank You Template -->
+        <div id="template-thankyou" class="template-section hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Thank You After Gift</h2>
+                    <button class="copy-btn" onclick="copyTemplate('thankyou')">Copy to Clipboard</button>
+                </div>
+                <p class="text-muted">Send immediately after receiving a gift</p>
+
+                <div class="form-group mt-20">
+                    <label>Subject Line</label>
+                    <input type="text" class="form-input" value="Thank you for unlocking Renaissance wisdom" id="subject-thankyou">
+                </div>
+
+                <div class="template-content" id="content-thankyou">Dear [Name],
+
+Thank you.
+
+Your gift of $[amount] to the Ancient Wisdom Trust is more than a donation—it's an act of cultural preservation that will echo through generations.
+
+Here's what your support will help accomplish:
+• [Specific number] texts digitized
+• [Specific number] pages translated
+• Scholars, students, and seekers gaining access to wisdom locked away for centuries
+
+You are now part of a tradition of patronage that stretches back to the Medici. The thinkers of the Renaissance depended on patrons who believed knowledge should be preserved and shared. You've joined their ranks.
+
+In the coming months, we'll share updates on our progress, including translated excerpts you can read before anyone else.
+
+With deep gratitude,
+
+[Your Name]
+Ancient Wisdom Trust
+
+P.S. If you'd like to visit the Bibliotheca Philosophica Hermetica in Amsterdam, please let me know. We'd be honored to host you.</div>
+            </div>
+        </div>
+
+        <!-- Email Tips -->
+        <section class="card mt-20">
+            <h3>Email Best Practices</h3>
+            <div class="tips-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 16px;">
+                <div>
+                    <h4 class="text-accent">Subject Lines</h4>
+                    <ul style="margin-left: 20px; color: var(--text-secondary);">
+                        <li>Keep under 50 characters</li>
+                        <li>Create curiosity or urgency</li>
+                        <li>Personalize when possible</li>
+                        <li>A/B test variations</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-accent">Timing</h4>
+                    <ul style="margin-left: 20px; color: var(--text-secondary);">
+                        <li>Major donors: Personal, not mass emails</li>
+                        <li>Follow up after 7-10 days</li>
+                        <li>Best days: Tuesday-Thursday</li>
+                        <li>Best times: 10am or 2pm</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        function showTemplate(id) {
+            // Update tabs
+            document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show selected template
+            document.querySelectorAll('.template-section').forEach(s => s.classList.add('hidden'));
+            document.getElementById('template-' + id).classList.remove('hidden');
+        }
+
+        function copyTemplate(id) {
+            const subject = document.getElementById('subject-' + id).value;
+            const content = document.getElementById('content-' + id).textContent;
+            const fullText = 'Subject: ' + subject + '\n\n' + content;
+
+            navigator.clipboard.writeText(fullText);
+
+            const btn = event.target;
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy to Clipboard';
+                btn.classList.remove('copied');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

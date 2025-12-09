@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospect Database - AWT Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>AWT Playbook</h2>
+            <p class="tagline">Fundraising Campaign</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="prospects.html" class="active">Prospect Database</a></li>
+            <li><a href="foundations.html">Foundations & Grants</a></li>
+            <li><a href="corporate.html">Corporate Sponsors</a></li>
+            <li><a href="templates.html">Email Templates</a></li>
+            <li><a href="strategy.html">Strategy Guide</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <div class="campaign-goal">
+            <h4>Campaign Goal</h4>
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%"></div>
+            </div>
+            <p class="goal-text">$0 / $500,000</p>
+        </div>
+    </nav>
+
+    <main class="content">
+        <header class="page-header">
+            <h1>Prospect Database</h1>
+            <p class="subtitle">Track and manage all donor prospects</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" class="form-input" placeholder="Search prospects by name, organization, or category..." id="prospect-search">
+            <select class="form-select" style="width: auto;" id="filter-category">
+                <option value="">All Categories</option>
+                <option value="individual">Individual Donors</option>
+                <option value="foundation">Foundations</option>
+                <option value="corporate">Corporate</option>
+                <option value="academic">Academic</option>
+            </select>
+            <select class="form-select" style="width: auto;" id="filter-stage">
+                <option value="">All Stages</option>
+                <option value="identified">Identified</option>
+                <option value="qualified">Qualified</option>
+                <option value="cultivated">Cultivated</option>
+                <option value="solicited">Solicited</option>
+                <option value="pledged">Pledged</option>
+            </select>
+            <button class="btn btn-primary" onclick="openAddProspect()">+ Add Prospect</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('all')">All Prospects</button>
+            <button class="tab" onclick="showTab('individuals')">Individuals</button>
+            <button class="tab" onclick="showTab('foundations')">Foundations</button>
+            <button class="tab" onclick="showTab('corporate')">Corporate</button>
+        </div>
+
+        <div class="card">
+            <table class="data-table" id="prospects-table">
+                <thead>
+                    <tr>
+                        <th>Name / Organization</th>
+                        <th>Category</th>
+                        <th>Contact</th>
+                        <th>Capacity</th>
+                        <th>Stage</th>
+                        <th>Last Contact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="prospects-body">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <section class="card mt-20">
+            <h3>Prospect Research Resources</h3>
+            <p class="text-muted" style="margin: 12px 0;">Use these tools to research and find contact information for prospects:</p>
+            <div class="action-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <a href="https://candid.org/find-funding" target="_blank" class="action-card">
+                    <h4>Foundation Directory Online</h4>
+                    <p class="text-muted">Search foundations by focus area</p>
+                </a>
+                <a href="https://www.linkedin.com/sales/ssi" target="_blank" class="action-card">
+                    <h4>LinkedIn</h4>
+                    <p class="text-muted">Find decision makers at organizations</p>
+                </a>
+                <a href="https://projects.propublica.org/nonprofits/" target="_blank" class="action-card">
+                    <h4>ProPublica Nonprofit Explorer</h4>
+                    <p class="text-muted">View 990s and giving patterns</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Prospect Modal -->
+    <div class="modal-overlay" id="add-prospect-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Add New Prospect</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="add-prospect-form">
+                <div class="form-group">
+                    <label>Name / Organization</label>
+                    <input type="text" class="form-input" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select class="form-select" name="category" required>
+                        <option value="individual">Individual Donor</option>
+                        <option value="foundation">Foundation</option>
+                        <option value="corporate">Corporate</option>
+                        <option value="academic">Academic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Contact Name</label>
+                    <input type="text" class="form-input" name="contact_name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" class="form-input" name="phone">
+                </div>
+                <div class="form-group">
+                    <label>Estimated Capacity</label>
+                    <select class="form-select" name="capacity">
+                        <option value="$1K-$5K">$1K - $5K</option>
+                        <option value="$5K-$10K">$5K - $10K</option>
+                        <option value="$10K-$25K">$10K - $25K</option>
+                        <option value="$25K-$50K">$25K - $50K</option>
+                        <option value="$50K-$100K">$50K - $100K</option>
+                        <option value="$100K+">$100K+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Connection to Mission</label>
+                    <textarea class="form-textarea" name="connection" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea class="form-textarea" name="notes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Prospect</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        function openAddProspect() {
+            document.getElementById('add-prospect-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('add-prospect-modal').classList.remove('active');
+        }
+
+        function showTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            filterProspects(tab);
+        }
+    </script>
+</body>
+</html>

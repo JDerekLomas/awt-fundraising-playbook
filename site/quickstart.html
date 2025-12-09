@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Tonight - AWT Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>AWT Playbook</h2>
+            <p class="tagline">Fundraising Campaign</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="quickstart.html" class="active">Quick Start Tonight</a></li>
+            <li><a href="prospects.html">Prospect Database</a></li>
+            <li><a href="foundations.html">Foundations & Grants</a></li>
+            <li><a href="corporate.html">Corporate Sponsors</a></li>
+            <li><a href="templates.html">Email Templates</a></li>
+            <li><a href="strategy.html">Strategy Guide</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <div class="campaign-goal">
+            <h4>Campaign Goal</h4>
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%"></div>
+            </div>
+            <p class="goal-text">$0 / $500,000</p>
+        </div>
+    </nav>
+
+    <main class="content">
+        <header class="page-header">
+            <h1>Quick Start Tonight</h1>
+            <p class="subtitle">10 high-priority outreach targets you can contact RIGHT NOW</p>
+        </header>
+
+        <div class="motivation-box">
+            <h3>You've got this.</h3>
+            <p>Fundraising is just telling people about something amazing and giving them a chance to be part of it. These people are interested in exactly what you're doing. Start with one message. Then another.</p>
+        </div>
+
+        <!-- Immediate Actions -->
+        <section class="card">
+            <h2>Step 1: Copy Your Twitter/X DM Script</h2>
+            <p class="text-muted">Use this for tech founders and influencers. Keep it short - you can elaborate if they respond.</p>
+            <div class="template-content" id="twitter-dm">Hi [Name],
+
+I'm working on something you might find interesting - we're using AI to translate 5,000 rare Renaissance Latin texts that have never been available in English. Think Ficino, Agrippa, Bruno - the source material of Western esoteric thought.
+
+95% of Renaissance books have never been translated. We're changing that.
+
+Would love to tell you more if you're curious. No pressure either way.
+
+[Your name]
+ancientwisdomtrust.org</div>
+            <button class="copy-btn" onclick="copyText('twitter-dm')">Copy DM Script</button>
+        </section>
+
+        <!-- Tonight's Targets -->
+        <section class="card">
+            <h2>Step 2: Send These 10 Messages Tonight</h2>
+            <p class="text-muted">Start at the top. Each one takes 2 minutes. Check them off as you go.</p>
+
+            <div class="target-list">
+                <!-- Target 1 -->
+                <div class="target-card priority-high">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-1">
+                        <label for="check-1">
+                            <h3>Naval Ravikant</h3>
+                            <span class="badge badge-success">Highest Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> AngelList co-founder, angel investor, philosopher-investor with 5M+ followers</p>
+                        <p><strong>Why him:</strong> Constantly tweets about ancient wisdom, philosophy, and consciousness. Perfect alignment.</p>
+                        <p><strong>Capacity:</strong> $100K+ (net worth ~$100M)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/naval" target="_blank" class="btn btn-primary btn-small">Open @naval on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('naval')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-naval">Hi Naval, I'm working on something that might resonate with your interest in timeless wisdom - we're using AI to translate 5,000 rare Renaissance texts that have never been available in English. Ficino, Bruno, Agrippa - the foundational thinkers.
+
+95% of Renaissance books lack translations. We're fixing that.
+
+Would love to share more if you're curious. The intersection of ancient wisdom and modern tech is exactly what this project is about.</div>
+                </div>
+
+                <!-- Target 2 -->
+                <div class="target-card priority-high">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-2">
+                        <label for="check-2">
+                            <h3>Balaji Srinivasan</h3>
+                            <span class="badge badge-success">High Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Former Coinbase CTO, tech philosopher, author of "The Network State"</p>
+                        <p><strong>Why him:</strong> Obsessed with preserving knowledge, building parallel institutions, and historical wisdom</p>
+                        <p><strong>Capacity:</strong> $100K+ (very wealthy from crypto)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/balajis" target="_blank" class="btn btn-primary btn-small">Open @balajis on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('balaji')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-balaji">Hi Balaji, Given your work on civilizational preservation and the Network State - thought you might be interested in what we're doing.
+
+We're digitizing and translating 5,000 rare Renaissance texts from the Bibliotheca Philosophica Hermetica in Amsterdam. 95% of Renaissance books have never been translated. We're using AI to change that at scale.
+
+This is the kind of knowledge infrastructure that outlasts institutions. Would love to tell you more.</div>
+                </div>
+
+                <!-- Target 3 -->
+                <div class="target-card priority-high">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-3">
+                        <label for="check-3">
+                            <h3>Tim Ferriss</h3>
+                            <span class="badge badge-success">High Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Author of 4-Hour Workweek, investor, podcast host exploring philosophy and wisdom</p>
+                        <p><strong>Why him:</strong> Deep interest in Stoicism and ancient philosophy. Funds unconventional projects.</p>
+                        <p><strong>Capacity:</strong> $100K+ (early Uber, Shopify investor)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/tferriss" target="_blank" class="btn btn-primary btn-small">Open @tferriss on X</a>
+                            <a href="https://tim.blog/contact/" target="_blank" class="btn btn-secondary btn-small">Contact Form</a>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-tim">Hi Tim, I know you're interested in extracting wisdom from the ancients - we're working on something you might find compelling.
+
+We're translating 5,000 rare Renaissance Latin texts that have never been available in English. Philosophy, alchemy, early science - the intellectual DNA of the modern world.
+
+95% of Renaissance books lack translations. We're using AI to fix that at scale. Would love to share more.</div>
+                </div>
+
+                <!-- Target 4 -->
+                <div class="target-card priority-high">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-4">
+                        <label for="check-4">
+                            <h3>Lex Fridman</h3>
+                            <span class="badge badge-success">High Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> MIT AI researcher, podcast host with massive reach, explores philosophy deeply</p>
+                        <p><strong>Why him:</strong> Perfect intersection of AI + philosophy + ancient wisdom. Could interview you.</p>
+                        <p><strong>Capacity:</strong> $25K-$100K (plus audience amplification worth much more)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/lexfridman" target="_blank" class="btn btn-primary btn-small">Open @lexfridman on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('lex')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-lex">Hi Lex, Your conversations on consciousness, philosophy, and AI are inspiring. Thought you might be interested in a project at their intersection.
+
+We're using AI to translate 5,000 rare Renaissance texts - Hermetic philosophy, alchemy, early science - that have never been available in English. Training AI on the best of human thought, not just the internet.
+
+Would love to chat if you're curious. Could make for an interesting conversation on your show too.</div>
+                </div>
+
+                <!-- Target 5 -->
+                <div class="target-card priority-medium">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-5">
+                        <label for="check-5">
+                            <h3>Jordan Peterson</h3>
+                            <span class="badge badge-warning">Medium Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Psychologist, author, discusses alchemy and Jung extensively</p>
+                        <p><strong>Why him:</strong> Talks about alchemical symbolism constantly. Huge audience interested in these texts.</p>
+                        <p><strong>Capacity:</strong> $50K-$100K (bestselling author)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/jordanbpeterson" target="_blank" class="btn btn-primary btn-small">Open @jordanbpeterson on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('peterson')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-peterson">Dr. Peterson, Your work on alchemical symbolism and psychological transformation has inspired millions. Thought you'd want to know about a project to make the original source texts accessible.
+
+We're digitizing and translating 5,000 rare Renaissance texts - the original alchemical, Hermetic, and philosophical works that Jung drew from. 95% have never been translated.
+
+These are the primary sources behind the symbolism you discuss. Would be honored to share more.</div>
+                </div>
+
+                <!-- Target 6 -->
+                <div class="target-card priority-medium">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-6">
+                        <label for="check-6">
+                            <h3>Aubrey Marcus</h3>
+                            <span class="badge badge-warning">Medium Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Onnit founder (sold to Unilever), podcast host on transformation and consciousness</p>
+                        <p><strong>Why him:</strong> Discusses alchemy, transformation, and mysticism regularly. Has the means and interest.</p>
+                        <p><strong>Capacity:</strong> $50K-$100K+ (sold company)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/AubreyMarcus" target="_blank" class="btn btn-primary btn-small">Open @AubreyMarcus on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('aubrey')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-aubrey">Hey Aubrey, Given your interest in transformation and alchemical wisdom - wanted to share something that might resonate.
+
+We're translating 5,000 rare Renaissance texts that have never been available in English - the original source material of Western alchemical and Hermetic traditions. Ficino, Agrippa, Paracelsus.
+
+95% of Renaissance books lack translations. We're changing that. Would love to tell you more about the project.</div>
+                </div>
+
+                <!-- Target 7 -->
+                <div class="target-card priority-medium">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-7">
+                        <label for="check-7">
+                            <h3>Duncan Trussell</h3>
+                            <span class="badge badge-warning">Medium Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Comedian, Duncan Trussell Family Hour podcast, deep dives into esotericism</p>
+                        <p><strong>Why him:</strong> His entire audience is interested in exactly these texts. Could promote + donate.</p>
+                        <p><strong>Capacity:</strong> $10K-$50K (plus audience amplification)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/duncantrussell" target="_blank" class="btn btn-primary btn-small">Open @duncantrussell on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('duncan')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-duncan">Duncan! I've been listening to DTFH for years and your explorations of Hermetic philosophy, mysticism, and the Western esoteric tradition are incredible.
+
+Thought you'd want to know - we're translating 5,000 rare Renaissance texts that have never been available in English. The actual primary sources of the tradition you discuss. Ficino, Bruno, Agrippa, Paracelsus.
+
+Would love to tell you more. This might make for an interesting episode too.</div>
+                </div>
+
+                <!-- Target 8 -->
+                <div class="target-card priority-medium">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-8">
+                        <label for="check-8">
+                            <h3>Graham Hancock</h3>
+                            <span class="badge badge-warning">Medium Priority</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Bestselling author on ancient civilizations and mystery traditions</p>
+                        <p><strong>Why him:</strong> His audience is obsessed with hidden knowledge. Direct alignment with mission.</p>
+                        <p><strong>Capacity:</strong> $25K-$100K (bestselling author)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/Graham__Hancock" target="_blank" class="btn btn-primary btn-small">Open @Graham__Hancock on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('graham')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-graham">Mr. Hancock, Your work uncovering hidden history and ancient wisdom has inspired millions to look deeper. Wanted to share something you might find compelling.
+
+We're translating 5,000 rare Renaissance texts that have never been available in English - Hermetic philosophy, alchemy, mysticism. The intellectual tradition that preserved ancient knowledge through the Renaissance.
+
+95% of these books lack translations. We're changing that. Would be honored to share more.</div>
+                </div>
+
+                <!-- Target 9 -->
+                <div class="target-card priority-medium">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-9">
+                        <label for="check-9">
+                            <h3>Mitch Horowitz</h3>
+                            <span class="badge badge-info">Strategic Contact</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Author on occult history, VP/Editor at Penguin Random House (Tarcher imprint)</p>
+                        <p><strong>Why him:</strong> Could donate AND connect you to wealthy collectors AND potential publishing deals</p>
+                        <p><strong>Capacity:</strong> $5K-$25K + connections</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/MitchHorowitz" target="_blank" class="btn btn-primary btn-small">Open @MitchHorowitz on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('mitch')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-mitch">Hi Mitch, Your work on Western esotericism and occult history is essential reading. As someone who's both a scholar and publisher in this space, wanted to share a project you might find compelling.
+
+We're digitizing and translating 5,000 rare Renaissance texts from the Bibliotheca Philosophica Hermetica in Amsterdam - Hermetic, alchemical, and philosophical works that have never been translated.
+
+Given your role at Tarcher and your network of collectors, would love to discuss potential collaboration.</div>
+                </div>
+
+                <!-- Target 10 -->
+                <div class="target-card priority-medium">
+                    <div class="target-header">
+                        <input type="checkbox" class="target-check" id="check-10">
+                        <label for="check-10">
+                            <h3>Rick Rubin</h3>
+                            <span class="badge badge-warning">Stretch Goal</span>
+                        </label>
+                    </div>
+                    <div class="target-details">
+                        <p><strong>Who:</strong> Legendary music producer, author of "The Creative Act", known for mystical approach</p>
+                        <p><strong>Why him:</strong> Deep interest in creativity, consciousness, and transformation. Very wealthy.</p>
+                        <p><strong>Capacity:</strong> $50K-$100K+ (legendary producer)</p>
+                        <div class="target-actions">
+                            <a href="https://twitter.com/RickRubin" target="_blank" class="btn btn-primary btn-small">Open @RickRubin on X</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyPersonalized('rick')">Copy Personalized DM</button>
+                        </div>
+                    </div>
+                    <div class="personalized-dm hidden" id="dm-rick">Hi Rick, "The Creative Act" spoke to something ancient about the creative process. Thought you might be interested in a project that's uncovering the original sources of that wisdom.
+
+We're translating 5,000 rare Renaissance texts - Hermetic philosophy, alchemy, the science of transformation - that have never been available in English. The creative and spiritual traditions of the Renaissance masters.
+
+Would be honored to share more about the project.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- After You Send -->
+        <section class="card">
+            <h2>Step 3: After You Send Tonight's Messages</h2>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="after-1">
+                    <label for="after-1">Add each person to your <a href="prospects.html">Prospect Database</a> with status "Identified"</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="after-2">
+                    <label for="after-2">Set a reminder to follow up in 5-7 days if no response</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="after-3">
+                    <label for="after-3">Follow each person on Twitter/X so you can engage with their content</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="after-4">
+                    <label for="after-4">Tomorrow: Start on <a href="foundations.html">Foundation outreach</a> (longer timelines, bigger amounts)</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Encouragement -->
+        <section class="card motivation">
+            <h2>Remember</h2>
+            <ul>
+                <li><strong>Most people don't respond.</strong> That's normal. It only takes one yes.</li>
+                <li><strong>You're not asking for a favor.</strong> You're offering them a chance to be part of something meaningful.</li>
+                <li><strong>Personalization matters.</strong> Reference their specific interests when possible.</li>
+                <li><strong>Follow up.</strong> The second message often gets the response.</li>
+                <li><strong>Celebrate small wins.</strong> Every sent message is progress.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <style>
+        .motivation-box {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--accent);
+        }
+        .motivation-box h3 {
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .motivation-box p {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .target-list {
+            margin-top: 20px;
+        }
+        .target-card {
+            background: var(--bg-dark);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .target-card.priority-high {
+            border-left: 4px solid var(--success);
+        }
+        .target-card.priority-medium {
+            border-left: 4px solid var(--warning);
+        }
+        .target-header {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+        }
+        .target-check {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .target-check:checked + label h3 {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        .target-header label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            flex: 1;
+        }
+        .target-header h3 {
+            margin: 0;
+            color: var(--text-primary);
+        }
+        .target-details {
+            padding: 20px;
+        }
+        .target-details p {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        .target-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .personalized-dm {
+            background: var(--bg-card);
+            padding: 16px;
+            margin-top: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            color: var(--text-secondary);
+        }
+
+        .checklist {
+            margin-top: 16px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .checklist-item:last-child {
+            border: none;
+        }
+        .checklist-item input {
+            width: 18px;
+            height: 18px;
+        }
+        .checklist-item label {
+            color: var(--text-secondary);
+        }
+        .checklist-item a {
+            color: var(--accent);
+        }
+
+        .motivation ul {
+            margin-left: 20px;
+        }
+        .motivation li {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+    </style>
+    <script>
+        function copyText(id) {
+            const text = document.getElementById(id).textContent;
+            navigator.clipboard.writeText(text);
+            event.target.textContent = 'Copied!';
+            event.target.classList.add('copied');
+            setTimeout(() => {
+                event.target.textContent = 'Copy DM Script';
+                event.target.classList.remove('copied');
+            }, 2000);
+        }
+
+        function copyPersonalized(name) {
+            const dm = document.getElementById('dm-' + name);
+            dm.classList.toggle('hidden');
+
+            if (!dm.classList.contains('hidden')) {
+                navigator.clipboard.writeText(dm.textContent);
+                event.target.textContent = 'Copied!';
+                event.target.classList.add('copied');
+                setTimeout(() => {
+                    event.target.textContent = 'Copy Personalized DM';
+                    event.target.classList.remove('copied');
+                }, 2000);
+            }
+        }
+
+        // Save checkbox state to localStorage
+        document.querySelectorAll('.target-check, .checklist-item input').forEach(checkbox => {
+            const stored = localStorage.getItem(checkbox.id);
+            if (stored === 'true') checkbox.checked = true;
+
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+            });
+        });
+    </script>
+</body>
+</html>
