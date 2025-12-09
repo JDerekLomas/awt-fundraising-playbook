@@ -40,6 +40,19 @@
             <p class="subtitle">Track and manage all donor prospects</p>
         </header>
 
+        <!-- CRM Setup Banner -->
+        <div id="setup-banner" class="card" style="display: none; background: var(--bg-warm); border-left: 4px solid var(--accent-rust); margin-bottom: 20px;">
+            <h3 style="color: var(--accent-rust);">Supabase CRM Setup Required</h3>
+            <p style="margin: 12px 0;">To enable cloud-based prospect tracking, run the SQL schema in your Supabase dashboard:</p>
+            <ol style="margin-left: 20px; color: var(--text-secondary);">
+                <li>Go to <a href="https://supabase.com/dashboard/project/jmivthevbgxfnetmgjca/sql" target="_blank" style="color: var(--accent-rust);">Supabase SQL Editor</a></li>
+                <li>Copy the contents of <code>setup-database.sql</code></li>
+                <li>Paste and run the SQL</li>
+                <li>Refresh this page</li>
+            </ol>
+            <p style="margin-top: 12px;"><strong>Note:</strong> Until setup is complete, prospects are saved to your browser's local storage.</p>
+        </div>
+
         <div class="search-box">
             <input type="text" class="form-input" placeholder="Search prospects by name, organization, or category..." id="prospect-search">
             <select class="form-select" style="width: auto;" id="filter-category">
@@ -163,8 +176,91 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
     <script src="app.js"></script>
     <script>
+        let crmReady = false;
+
+        // Check if Supabase tables exist
+        async function checkCRMStatus() {
+            try {
+                const { data, error } = await supabase.from('contacts').select('id').limit(1);
+                if (error && error.code === '42P01') {
+                    // Table doesn't exist
+                    showSetupBanner();
+                    return false;
+                }
+                crmReady = true;
+                hideSetupBanner();
+                loadProspects();
+                return true;
+            } catch (e) {
+                console.log('CRM check failed:', e);
+                showSetupBanner();
+                return false;
+            }
+        }
+
+        function showSetupBanner() {
+            const banner = document.getElementById('setup-banner');
+            if (banner) banner.style.display = 'block';
+        }
+
+        function hideSetupBanner() {
+            const banner = document.getElementById('setup-banner');
+            if (banner) banner.style.display = 'none';
+        }
+
+        async function loadProspects() {
+            if (!crmReady) return;
+
+            const prospects = await AWTCRM.getContacts();
+            const tbody = document.getElementById('prospects-body');
+
+            if (prospects.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 40px;">
+                            No prospects yet. <a href="#" onclick="openAddProspect(); return false;">Add your first prospect</a>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = prospects.map(p => `
+                <tr>
+                    <td>
+                        <strong>${p.name}</strong>
+                        ${p.organization ? `<br><span class="text-muted">${p.organization}</span>` : ''}
+                    </td>
+                    <td><span class="badge badge-${getCategoryBadge(p.category)}">${p.category}</span></td>
+                    <td>
+                        ${p.email ? `<a href="mailto:${p.email}">${p.email}</a>` : ''}
+                        ${p.twitter ? `<br><a href="https://twitter.com/${p.twitter.replace('@','')}" target="_blank">${p.twitter}</a>` : ''}
+                    </td>
+                    <td>$${(p.estimated_amount || 0).toLocaleString()}</td>
+                    <td><span class="badge badge-${getStatusBadge(p.status)}">${p.status}</span></td>
+                    <td>${p.updated_at ? new Date(p.updated_at).toLocaleDateString() : '-'}</td>
+                    <td>
+                        <button class="btn btn-sm" onclick="editProspect('${p.id}')">Edit</button>
+                        <button class="btn btn-sm" onclick="logInteraction('${p.id}')">Log</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function getCategoryBadge(cat) {
+            const badges = { individual: 'info', foundation: 'success', corporate: 'warning', academic: 'info' };
+            return badges[cat] || 'info';
+        }
+
+        function getStatusBadge(status) {
+            const badges = { prospect: 'info', contacted: 'warning', meeting: 'warning', proposal: 'success', committed: 'success', received: 'success' };
+            return badges[status] || 'info';
+        }
+
         function openAddProspect() {
             document.getElementById('add-prospect-modal').classList.add('active');
         }
@@ -178,6 +274,70 @@
             event.target.classList.add('active');
             filterProspects(tab);
         }
+
+        async function filterProspects(category) {
+            if (!crmReady) return;
+            const filter = category === 'all' ? {} : { category };
+            const prospects = await AWTCRM.getContacts(filter);
+            // Update table...
+            loadProspects();
+        }
+
+        // Handle form submission
+        document.getElementById('add-prospect-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+
+            const prospect = {
+                name: formData.get('name'),
+                category: formData.get('category'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                estimated_amount: parseCapacity(formData.get('capacity')),
+                hook: formData.get('connection'),
+                notes: formData.get('notes'),
+                status: 'prospect'
+            };
+
+            if (crmReady) {
+                await AWTCRM.addContact(prospect);
+                loadProspects();
+            } else {
+                // Fallback to localStorage
+                const prospects = JSON.parse(localStorage.getItem('awt_prospects') || '[]');
+                prospects.push({ ...prospect, id: Date.now(), created_at: new Date().toISOString() });
+                localStorage.setItem('awt_prospects', JSON.stringify(prospects));
+            }
+
+            form.reset();
+            closeModal();
+        });
+
+        function parseCapacity(cap) {
+            const map = {
+                '$1K-$5K': 3000,
+                '$5K-$10K': 7500,
+                '$10K-$25K': 17500,
+                '$25K-$50K': 37500,
+                '$50K-$100K': 75000,
+                '$100K+': 100000
+            };
+            return map[cap] || 0;
+        }
+
+        function editProspect(id) {
+            // TODO: implement edit modal
+            alert('Edit functionality coming soon');
+        }
+
+        function logInteraction(id) {
+            // TODO: implement interaction logging
+            alert('Interaction logging coming soon');
+        }
+
+        // Initialize
+        checkCRMStatus();
     </script>
 </body>
 </html>
