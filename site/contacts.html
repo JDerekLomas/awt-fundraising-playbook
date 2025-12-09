@@ -12,11 +12,11 @@
             <h2>AWT Playbook</h2>
             <p class="tagline">Fundraising Campaign</p>
         </div>
-                <ul class="nav-links">
+        <ul class="nav-links">
             <li><a href="index.html">Dashboard</a></li>
-            <li><a href="quickstart.html" style="color: var(--accent); font-weight: bold;">Start Tonight</a></li>
+            <li><a href="quickstart.html" class="highlight-link">Start Tonight</a></li>
             <li><a href="socials.html">Social Media</a></li>
-            <li><a href="contacts.html">Contact Database</a></li>
+            <li><a href="contacts.html" class="active">Contact Database</a></li>
             <li><a href="prospects.html">Prospect Tracker</a></li>
             <li><a href="foundations.html">Foundations</a></li>
             <li><a href="corporate.html">Corporate</a></li>
@@ -37,29 +37,35 @@
     <main class="content">
         <header class="page-header">
             <h1>Contact Database</h1>
-            <p class="subtitle">100+ researched contacts across all donor segments</p>
+            <p class="subtitle">150+ researched contacts across all donor segments with personalized hooks</p>
         </header>
 
         <div class="search-box">
-            <input type="text" class="form-input" placeholder="Search contacts..." id="contact-search" onkeyup="filterContacts()">
+            <input type="text" class="form-input" placeholder="Search contacts by name, role, or hook..." id="contact-search" onkeyup="filterContacts()">
             <select class="form-select" style="width: auto;" id="filter-type" onchange="filterContacts()">
                 <option value="">All Categories</option>
                 <option value="tech">Tech/Philosophy</option>
                 <option value="author">Authors/Scholars</option>
-                <option value="podcast">Podcast Hosts</option>
-                <option value="collector">Collectors/Dealers</option>
+                <option value="podcast">Podcasts</option>
+                <option value="wellness">Wellness/Consciousness</option>
+                <option value="film">Filmmakers</option>
+                <option value="creative">Creative Industry</option>
+                <option value="collector">Collectors</option>
                 <option value="org">Organizations</option>
                 <option value="academic">Academic</option>
             </select>
         </div>
 
         <div class="tabs">
-            <button class="tab active" onclick="showCategory('all')">All Contacts</button>
-            <button class="tab" onclick="showCategory('tech')">Tech/Philosophy</button>
+            <button class="tab active" onclick="showCategory('all')">All</button>
+            <button class="tab" onclick="showCategory('tech')">Tech</button>
             <button class="tab" onclick="showCategory('author')">Authors</button>
             <button class="tab" onclick="showCategory('podcast')">Podcasts</button>
+            <button class="tab" onclick="showCategory('wellness')">Wellness</button>
+            <button class="tab" onclick="showCategory('film')">Film</button>
+            <button class="tab" onclick="showCategory('creative')">Creative</button>
             <button class="tab" onclick="showCategory('collector')">Collectors</button>
-            <button class="tab" onclick="showCategory('org')">Organizations</button>
+            <button class="tab" onclick="showCategory('org')">Orgs</button>
             <button class="tab" onclick="showCategory('academic')">Academic</button>
         </div>
 
@@ -67,130 +73,22 @@
         <section class="contact-section" data-category="tech">
             <div class="section-header">
                 <h2>Tech & Philosophy Leaders</h2>
-                <span class="contact-count">14 contacts</span>
+                <span class="contact-count">20 contacts</span>
             </div>
 
             <div class="contact-grid">
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Patrick Collison</h3>
-                        <span class="badge badge-success">$100K+</span>
-                    </div>
-                    <p class="contact-role">CEO, Stripe</p>
-                    <p class="contact-why">Known for intellectual curiosity, runs Fast Grants program. Interested in accelerating important projects.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/patrickc" target="_blank">@patrickc</a>
-                        <a href="https://patrickcollison.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM or through Fast Grants. Frame as accelerating access to foundational knowledge.</p>
-                </div>
-
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Tyler Cowen</h3>
-                        <span class="badge badge-success">$50K+</span>
-                    </div>
-                    <p class="contact-role">Economist, Emergent Ventures</p>
-                    <p class="contact-why">Runs Emergent Ventures grants for unconventional projects. Deeply interested in progress and knowledge.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/tylercowen" target="_blank">@tylercowen</a>
-                        <a href="https://www.mercatus.org/emergent-ventures" target="_blank">Emergent Ventures</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Apply to Emergent Ventures or email through GMU. Cultural preservation angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Nat Friedman</h3>
-                        <span class="badge badge-success">$100K+</span>
-                    </div>
-                    <p class="contact-role">Former GitHub CEO, AI Investor</p>
-                    <p class="contact-why">Funds Vesuvius Challenge (reading ancient scrolls with AI). PERFECT alignment with AI + ancient texts.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/natfriedman" target="_blank">@natfriedman</a>
-                        <a href="https://nat.org" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Direct Twitter DM. Reference Vesuvius Challenge - this is similar work.</p>
-                </div>
-
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Daniel Gross</h3>
-                        <span class="badge badge-warning">$25K-$100K</span>
-                    </div>
-                    <p class="contact-role">Pioneer Fund, Former Apple AI</p>
-                    <p class="contact-why">Funds ambitious projects through Pioneer. Interested in unconventional talent and ideas.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/danielgross" target="_blank">@danielgross</a>
-                        <a href="https://pioneer.app" target="_blank">Pioneer</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Apply to Pioneer or direct Twitter outreach.</p>
-                </div>
-
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Kevin Kelly</h3>
-                        <span class="badge badge-warning">$25K-$50K</span>
-                    </div>
-                    <p class="contact-role">Wired Co-founder, Long Now</p>
-                    <p class="contact-why">Board member of Long Now Foundation (10,000 year thinking). Perfect alignment with preservation mission.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/kevin2kelly" target="_blank">@kevin2kelly</a>
-                        <a href="https://kk.org" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email through website or Long Now connection. Frame as long-term preservation.</p>
-                </div>
-
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Stewart Brand</h3>
-                        <span class="badge badge-warning">$25K-$50K</span>
-                    </div>
-                    <p class="contact-role">Long Now Foundation, Whole Earth</p>
-                    <p class="contact-why">Pioneer of long-term thinking, preservation of knowledge. Started the Whole Earth Catalog.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/stewartbrand" target="_blank">@stewartbrand</a>
-                        <a href="https://longnow.org" target="_blank">Long Now</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Through Long Now Foundation. Emphasize 500+ year preservation.</p>
-                </div>
-
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Jaan Tallinn</h3>
-                        <span class="badge badge-success">$100K+</span>
-                    </div>
-                    <p class="contact-role">Skype Co-founder, CSER Funder</p>
-                    <p class="contact-why">Funds existential risk and AI safety research. Training AI on quality historical texts aligns with his interests.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/tallinnj" target="_blank">@tallinn</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Through CSER or Future of Life Institute connections. AI training data angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="tech">
-                    <div class="contact-header">
-                        <h3>Dustin Moskovitz</h3>
-                        <span class="badge badge-success">$100K+</span>
-                    </div>
-                    <p class="contact-role">Asana Co-founder, Open Philanthropy</p>
-                    <p class="contact-why">Runs Open Philanthropy with focus on effective giving. May be interested in cultural preservation.</p>
-                    <div class="contact-links">
-                        <a href="https://www.openphilanthropy.org" target="_blank">Open Philanthropy</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Formal application to Open Philanthropy. Need strong impact case.</p>
-                </div>
-
                 <div class="contact-card" data-type="tech">
                     <div class="contact-header">
                         <h3>Naval Ravikant</h3>
                         <span class="badge badge-success">$100K+</span>
                     </div>
                     <p class="contact-role">AngelList Co-founder</p>
-                    <p class="contact-why">Philosopher-investor. Constantly discusses ancient wisdom, consciousness, timeless knowledge.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Studies Stoicism, Buddhism - Renaissance texts fill gap between ancient and modern. "Specific knowledge" and leverage concepts align with project.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/naval" target="_blank">@naval</a>
-                        <a href="https://nav.al" target="_blank">Website</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Direct Twitter DM. He's accessible and responds to interesting projects.</p>
                 </div>
@@ -200,13 +98,31 @@
                         <h3>Balaji Srinivasan</h3>
                         <span class="badge badge-success">$100K+</span>
                     </div>
-                    <p class="contact-role">Former Coinbase CTO</p>
-                    <p class="contact-why">Author of "The Network State." Passionate about preserving knowledge and building parallel institutions.</p>
+                    <p class="contact-role">Former Coinbase CTO, Author</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Wrote "The Network State" - advocates for digitizing and decentralizing knowledge. Renaissance texts as "network state" knowledge infrastructure.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/balajis" target="_blank">@balajis</a>
-                        <a href="https://balajis.com" target="_blank">Website</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Twitter DM. Frame as network state knowledge infrastructure.</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>Nat Friedman</h3>
+                        <span class="badge badge-success">$100K+</span>
+                    </div>
+                    <p class="contact-role">Former GitHub CEO, Vesuvius Challenge</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Funds Vesuvius Challenge (reading ancient scrolls with AI). PERFECT alignment - already funding AI + ancient texts.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/natfriedman" target="_blank">@natfriedman</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Direct Twitter DM. Reference Vesuvius Challenge - this is similar work.</p>
                 </div>
 
                 <div class="contact-card" data-type="tech">
@@ -215,53 +131,418 @@
                         <span class="badge badge-success">$100K+</span>
                     </div>
                     <p class="contact-role">Ethereum Founder</p>
-                    <p class="contact-why">Funds public goods. Interested in mechanism design, philosophy. Could fund through Gitcoin.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Building decentralized systems echoing Renaissance city-state governance. Interested in mechanism design, philosophy, radical markets.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/VitalikButerin" target="_blank">@VitalikButerin</a>
-                        <a href="https://gitcoin.co" target="_blank">Gitcoin</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Apply to Gitcoin grants or direct Twitter. Public goods framing.</p>
                 </div>
 
                 <div class="contact-card" data-type="tech">
                     <div class="contact-header">
+                        <h3>Sam Altman</h3>
+                        <span class="badge badge-success">$100K+</span>
+                    </div>
+                    <p class="contact-role">CEO of OpenAI</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Building AGI while grappling with humanity's future - Renaissance wisdom on governance, ethics, human flourishing applies to AI alignment.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/sama" target="_blank">@sama</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM or through OpenAI. AI training data quality angle.</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>Patrick Collison</h3>
+                        <span class="badge badge-success">$100K+</span>
+                    </div>
+                    <p class="contact-role">CEO, Stripe / Fast Grants</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Known for intellectual curiosity, runs Fast Grants. Interested in accelerating important projects. "Progress studies" advocate.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/patrickc" target="_blank">@patrickc</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM or through Fast Grants. Frame as accelerating access to foundational knowledge.</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>Eric Weinstein</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Thiel Capital, The Portal Podcast</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Obsessed with "embedded growth obligations" and recapturing golden ages of science - Renaissance as peak human achievement model.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/EricRWeinstein" target="_blank">@EricRWeinstein</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM, through Thiel network. "Lost knowledge" framing.</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>Kevin Kelly</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Wired Co-founder, Long Now</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Board member of Long Now Foundation (10,000 year thinking). Perfect alignment with preservation mission.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/kevin2kelly" target="_blank">@kevin2kelly</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Email through website or Long Now connection. Long-term preservation frame.</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>Stewart Brand</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Long Now Foundation, Whole Earth</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Pioneer of long-term thinking, preservation of knowledge. Started Whole Earth Catalog - making knowledge accessible.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/stewartbrand" target="_blank">@stewartbrand</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through Long Now Foundation. Emphasize 500+ year preservation.</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>Demis Hassabis</h3>
+                        <span class="badge badge-success">$100K+</span>
+                    </div>
+                    <p class="contact-role">CEO of Google DeepMind</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Chess grandmaster + neuroscientist building AGI - Renaissance model of combining disparate fields for breakthrough thinking.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/demishassabis" target="_blank">@demishassabis</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through DeepMind, via AI research networks. Nobel Prize winner (2024).</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>John Carmack</h3>
+                        <span class="badge badge-warning">$50K+</span>
+                    </div>
+                    <p class="contact-role">Game Developer Legend, AGI Researcher</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        First-principles thinker building virtual worlds - Renaissance perspective on reality, simulation, and human experience.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/ID_AA_Carmack" target="_blank">@ID_AA_Carmack</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter, through AGI research network.</p>
+                </div>
+
+                <div class="contact-card" data-type="tech">
+                    <div class="contact-header">
+                        <h3>Stephen Wolfram</h3>
+                        <span class="badge badge-warning">$50K+</span>
+                    </div>
+                    <p class="contact-role">Wolfram Research, Mathematica</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Computational universe explorer seeking fundamental patterns - Renaissance polymaths as model for integrating knowledge across domains.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/stephen_wolfram" target="_blank">@stephen_wolfram</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through Wolfram Research, via physics/math networks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wellness/Consciousness -->
+        <section class="contact-section" data-category="wellness">
+            <div class="section-header">
+                <h2>Wellness & Consciousness Leaders</h2>
+                <span class="contact-count">15 contacts</span>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card" data-type="wellness">
+                    <div class="contact-header">
                         <h3>Tim Ferriss</h3>
                         <span class="badge badge-success">$100K+</span>
                     </div>
-                    <p class="contact-role">Author, Investor</p>
-                    <p class="contact-why">Deep interest in Stoicism, ancient philosophy. Funds unconventional projects.</p>
+                    <p class="contact-role">Author, Investor, Podcaster</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Studies Stoicism, Buddhism, Taoism. Funded $2M+ in psychedelic research. Podcast features meditation teachers, philosophers. Ancient practical wisdom angle.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/tferriss" target="_blank">@tferriss</a>
-                        <a href="https://tim.blog/contact" target="_blank">Contact</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact form on tim.blog or Twitter. Ancient practical wisdom angle.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Contact form on tim.blog or Twitter. Difficult to reach but perfect fit.</p>
                 </div>
 
-                <div class="contact-card" data-type="tech">
+                <div class="contact-card" data-type="wellness">
                     <div class="contact-header">
-                        <h3>Marc Andreessen</h3>
+                        <h3>Aubrey Marcus</h3>
+                        <span class="badge badge-warning">$50K-$100K</span>
+                    </div>
+                    <p class="contact-role">Founder of Onnit (sold to Unilever)</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Regular ayahuasca practitioner, studies Stoicism, shamanic traditions, tantric practices. "Own the day" philosophy combines biohacking with ancient wisdom.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/AubreyMarcus" target="_blank">@AubreyMarcus</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter, Instagram, podcast pitch. Transformation/alchemy angle.</p>
+                </div>
+
+                <div class="contact-card" data-type="wellness">
+                    <div class="contact-header">
+                        <h3>Dave Asprey</h3>
                         <span class="badge badge-success">$100K+</span>
                     </div>
-                    <p class="contact-role">a16z Co-founder</p>
-                    <p class="contact-why">Tweets about history and civilization. a16z has cultural/crypto grants programs.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/pmarca" target="_blank">@pmarca</a>
+                    <p class="contact-role">Bulletproof Founder (sold for $300M+)</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Studied meditation in Tibet. "Head Strong" references Tibetan practices. Combines neuroscience, ancient wisdom, technology for consciousness optimization.
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Through a16z crypto grants or direct Twitter for awareness.</p>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/daborgtious" target="_blank">@davasprey</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter, through Upgrade Labs, podcast pitch.</p>
                 </div>
 
-                <div class="contact-card" data-type="tech">
+                <div class="contact-card" data-type="wellness">
                     <div class="contact-header">
-                        <h3>Paul Graham</h3>
-                        <span class="badge badge-success">$50K+</span>
+                        <h3>Dan Harris</h3>
+                        <span class="badge badge-warning">$10K-$25K</span>
                     </div>
-                    <p class="contact-role">Y Combinator Founder</p>
-                    <p class="contact-why">Essayist with deep intellectual interests. Has funded unusual projects before.</p>
+                    <p class="contact-role">Ten Percent Happier Founder</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        ABC anchor who found Buddhism. Practices Vipassana, studies with Joseph Goldstein. "Meditation for skeptics" - Renaissance texts for modern minds.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://twitter.com/paulg" target="_blank">@paulg</a>
-                        <a href="http://paulgraham.com" target="_blank">Essays</a>
+                        <a href="https://twitter.com/danbharris" target="_blank">@danbharris</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Twitter engagement first, then DM. Essay-quality pitch.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM (very responsive), podcast guest requests.</p>
+                </div>
+
+                <div class="contact-card" data-type="wellness">
+                    <div class="contact-header">
+                        <h3>Chip Conley</h3>
+                        <span class="badge badge-warning">$30K-$60K</span>
+                    </div>
+                    <p class="contact-role">Modern Elder Academy, Former Airbnb</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Created "Modern Elder" concept combining wisdom traditions with modern aging. MEA curriculum includes meditation, philosophy. "Wisdom at Work" author.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/chipconley" target="_blank">@chipconley</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter, LinkedIn, Modern Elder Academy. Wisdom transmission angle.</p>
+                </div>
+
+                <div class="contact-card" data-type="wellness">
+                    <div class="contact-header">
+                        <h3>Christian Angermayer</h3>
+                        <span class="badge badge-success">$1B+ capacity</span>
+                    </div>
+                    <p class="contact-role">Billionaire Psychedelics Investor</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Credits ayahuasca with transforming his consciousness. Major investor in ATAI Life Sciences. Interested in consciousness expansion, spiritual development.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/cryptangermayer" target="_blank">@cryptangermayer</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter, LinkedIn, through investment channels. Very high-level target.</p>
+                </div>
+
+                <div class="contact-card" data-type="wellness">
+                    <div class="contact-header">
+                        <h3>Wim Hof</h3>
+                        <span class="badge badge-warning">$15K-$30K</span>
+                    </div>
+                    <p class="contact-role">The Iceman, Breathing Method</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Method draws from Tibetan Tummo breathing. Studied ancient practices for consciousness mastery. Believes in superhuman potential.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/iceman_hof" target="_blank">@iceman_hof</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Instagram, Twitter, through Wim Hof Method organization.</p>
+                </div>
+
+                <div class="contact-card" data-type="wellness">
+                    <div class="contact-header">
+                        <h3>Rick Doblin</h3>
+                        <span class="badge badge-info">$5K-$15K + connections</span>
+                    </div>
+                    <p class="contact-role">MAPS Founder</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        40+ year mission to legitimize psychedelic therapy. Sees psychedelics as tools for spiritual development. Indigenous plant medicine traditions connection.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/RickDoblin" target="_blank">@RickDoblin</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter, MAPS.org, speaking circuit (very accessible).</p>
+                </div>
+
+                <div class="contact-card" data-type="wellness">
+                    <div class="contact-header">
+                        <h3>Jack Dorsey</h3>
+                        <span class="badge badge-success">$5B+ capacity</span>
+                    </div>
+                    <p class="contact-role">Twitter/Block Founder</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Meditates 2+ hours daily, does Vipassana retreats, practices Buddhism. Funds meditation research. Regular 10-day silent retreats.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/jack" target="_blank">@jack</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter (difficult), through Block, meditation community connections.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filmmakers -->
+        <section class="contact-section" data-category="film">
+            <div class="section-header">
+                <h2>Filmmakers & Documentary Creators</h2>
+                <span class="contact-count">12 contacts</span>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card" data-type="film">
+                    <div class="contact-header">
+                        <h3>Graham Hancock</h3>
+                        <span class="badge badge-warning">$25K-$100K</span>
+                    </div>
+                    <p class="contact-role">"Ancient Apocalypse" (Netflix)</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Already covers lost ancient civilizations and esoteric knowledge. Renaissance hermetic texts directly relate to his interest in forgotten wisdom traditions.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/Graham__Hancock" target="_blank">@Graham__Hancock</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through website contact. Offer interview or exclusive content.</p>
+                </div>
+
+                <div class="contact-card" data-type="film">
+                    <div class="contact-header">
+                        <h3>Werner Herzog</h3>
+                        <span class="badge badge-success">High prestige</span>
+                    </div>
+                    <p class="contact-role">Legendary Filmmaker</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        "Lo and Behold" explores technology + human consciousness. AI preserving ancient wisdom = perfect Herzog paradox. Extremely high prestige value.
+                    </div>
+                    <div class="contact-links">
+                        <span>WME (William Morris Endeavor)</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through WME representation. Documentary subject pitch.</p>
+                </div>
+
+                <div class="contact-card" data-type="film">
+                    <div class="contact-header">
+                        <h3>Stephen Fry</h3>
+                        <span class="badge badge-success">$50K+ / 13M followers</span>
+                    </div>
+                    <p class="contact-role">Actor, Presenter, Intellectual</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Love of language, books, humanist tradition. "Planet Word" presenter. Renaissance texts as peak of humanist achievement. Massive platform.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/stephenfry" target="_blank">@stephenfry</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through United Agents (UK). 13M Twitter followers.</p>
+                </div>
+
+                <div class="contact-card" data-type="film">
+                    <div class="contact-header">
+                        <h3>Bettany Hughes</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">BBC History Presenter</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Classical historian specializing in ancient philosophy. Renaissance Neoplatonism revival would be perfect fit. Academic credibility.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/bettanyhughes" target="_blank">@bettanyhughes</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Knight Ayton Management. Documentary partnership.</p>
+                </div>
+
+                <div class="contact-card" data-type="film">
+                    <div class="contact-header">
+                        <h3>Matthew Killip</h3>
+                        <span class="badge badge-info">Perfect alignment</span>
+                    </div>
+                    <p class="contact-role">Director of "The Booksellers"</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Made documentary about rare book world. "The Booksellers 2: Ancient Wisdom" is a natural fit. Perfect thematic alignment.
+                    </div>
+                    <div class="contact-links">
+                        <span>Blackpaw Productions</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through Blackpaw Productions. Documentary pitch.</p>
+                </div>
+
+                <div class="contact-card" data-type="film">
+                    <div class="contact-header">
+                        <h3>Raoul Peck</h3>
+                        <span class="badge badge-success">High prestige</span>
+                    </div>
+                    <p class="contact-role">Oscar-nominated Director</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        "I Am Not Your Negro" director. Intellectual history and ideas that shaped modernity. Renaissance humanism as foundation of modern thought.
+                    </div>
+                    <div class="contact-links">
+                        <span>CAA (Creative Artists Agency)</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through CAA representation. Prestige documentary.</p>
+                </div>
+
+                <div class="contact-card" data-type="film">
+                    <div class="contact-header">
+                        <h3>Dan Carlin</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Hardcore History Podcast</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Deep-dive historical storytelling with millions of listeners. Renaissance esoteric knowledge as untold history. Existing massive audience.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/dccommonsense" target="_blank">@dccommonsense</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through dancarlin.com. Podcast episode pitch.</p>
                 </div>
             </div>
         </section>
@@ -270,170 +551,290 @@
         <section class="contact-section" data-category="author">
             <div class="section-header">
                 <h2>Authors & Scholars</h2>
-                <span class="contact-count">12 contacts</span>
+                <span class="contact-count">20 contacts</span>
             </div>
 
             <div class="contact-grid">
-                <div class="contact-card" data-type="author">
-                    <div class="contact-header">
-                        <h3>Mitch Horowitz</h3>
-                        <span class="badge badge-warning">$5K-$25K + connections</span>
-                    </div>
-                    <p class="contact-role">Author, VP at Penguin/Tarcher</p>
-                    <p class="contact-why">Writes on occult history. Has publishing connections AND collector network. Can open doors.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/MitchHorowitz" target="_blank">@MitchHorowitz</a>
-                        <a href="https://mitchhorowitz.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Direct Twitter/email. Publishing partnership + donor introductions.</p>
-                </div>
-
-                <div class="contact-card" data-type="author">
-                    <div class="contact-header">
-                        <h3>Gary Lachman</h3>
-                        <span class="badge badge-info">$5K-$15K + influence</span>
-                    </div>
-                    <p class="contact-role">Author (formerly Blondie bassist)</p>
-                    <p class="contact-why">Prolific author on esotericism. Connected to European collector circles.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/GaryLachman" target="_blank">@GaryLachman</a>
-                        <a href="https://garylachman.co.uk" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email through website. Advisory role, European connections.</p>
-                </div>
-
-                <div class="contact-card" data-type="author">
-                    <div class="contact-header">
-                        <h3>Erik Davis</h3>
-                        <span class="badge badge-info">$5K-$15K + influence</span>
-                    </div>
-                    <p class="contact-role">Author of "Techgnosis"</p>
-                    <p class="contact-why">Writes on technology and mysticism - perfect intersection. Bay Area connections.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/Erik_Davis" target="_blank">@Erik_Davis</a>
-                        <a href="https://techgnosis.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Twitter or website contact. Tech + esoteric angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="author">
-                    <div class="contact-header">
-                        <h3>Graham Hancock</h3>
-                        <span class="badge badge-warning">$25K-$100K</span>
-                    </div>
-                    <p class="contact-role">Bestselling Author</p>
-                    <p class="contact-why">Massive audience interested in ancient wisdom. Could promote + donate.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/Graham__Hancock" target="_blank">@Graham__Hancock</a>
-                        <a href="https://grahamhancock.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Through website contact. Offer interview or exclusive content.</p>
-                </div>
-
                 <div class="contact-card" data-type="author">
                     <div class="contact-header">
                         <h3>Jordan Peterson</h3>
                         <span class="badge badge-warning">$50K-$100K</span>
                     </div>
                     <p class="contact-role">Psychologist, Author</p>
-                    <p class="contact-why">Discusses alchemical symbolism extensively. Massive platform, wealthy from books.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Studies mythology, meaning, psychological wisdom. Renaissance as synthesis of Classical, Christian, and emerging scientific thought. Alchemical/Jungian angle.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/jordanbpeterson" target="_blank">@jordanbpeterson</a>
-                        <a href="https://jordanbpeterson.com" target="_blank">Website</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Through management or Twitter. Alchemical/Jungian angle.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Through management or Twitter. Alchemical symbolism angle.</p>
                 </div>
 
                 <div class="contact-card" data-type="author">
                     <div class="contact-header">
-                        <h3>Richard Smoley</h3>
-                        <span class="badge badge-info">$5K-$15K + influence</span>
+                        <h3>Ryan Holiday</h3>
+                        <span class="badge badge-warning">$25K-$50K / 500K followers</span>
                     </div>
-                    <p class="contact-role">Author, Editor of Quest Magazine</p>
-                    <p class="contact-why">Theosophical Society connections. Can reach their entire membership.</p>
+                    <p class="contact-role">Daily Stoic, Author</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Built career around Stoic philosophy. Owns rare philosophy books. Renaissance humanists were primary transmitters of Stoic texts. Massive following.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.innerchristianity.com" target="_blank">Website</a>
+                        <a href="https://twitter.com/RyanHoliday" target="_blank">@RyanHoliday</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email through website. Theosophical audience access.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter, Daily Stoic email, The Painted Porch bookstore.</p>
                 </div>
 
                 <div class="contact-card" data-type="author">
                     <div class="contact-header">
-                        <h3>Wouter Hanegraaff</h3>
-                        <span class="badge badge-info">Academic partner</span>
+                        <h3>Philip Goff</h3>
+                        <span class="badge badge-info">$10K-$25K / 32K followers</span>
                     </div>
-                    <p class="contact-role">Professor, University of Amsterdam</p>
-                    <p class="contact-why">World's leading academic expert on Western esotericism. AT THE SAME UNIVERSITY as the library.</p>
+                    <p class="contact-role">Panpsychist Philosopher</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        "Galileo's Error" argues consciousness is fundamental. Renaissance Neoplatonists held similar views. Historical precedent for panpsychism.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.uva.nl/en/profile/h/a/w.j.hanegraaff/w.j.hanegraaff.html" target="_blank">UvA Profile</a>
+                        <a href="https://twitter.com/Philip_Goff" target="_blank">@Philip_Goff</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Formal academic email. Partnership, advisory board, scholarly credibility.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter (active, ~32K followers). Academic connection.</p>
                 </div>
 
                 <div class="contact-card" data-type="author">
                     <div class="contact-header">
-                        <h3>Jeffrey Kripal</h3>
-                        <span class="badge badge-info">Academic partner</span>
+                        <h3>Bernardo Kastrup</h3>
+                        <span class="badge badge-info">$10K-$25K / 50K followers</span>
                     </div>
-                    <p class="contact-role">Professor, Rice University</p>
-                    <p class="contact-why">Runs GEM (Gnosticism, Esotericism, Mysticism) program. Academic credibility + connections.</p>
+                    <p class="contact-role">Idealist Philosopher</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Draws on Jung, alchemy, perennial philosophy. "Decoding Jung's Metaphysics" author. Explicitly connects alchemy, Jung, consciousness. Very active online.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://profiles.rice.edu/faculty/jeffrey-kripal" target="_blank">Rice Profile</a>
+                        <a href="https://twitter.com/BernardoKastrup" target="_blank">@BernardoKastrup</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Academic email. Advisory role, student involvement.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter (very active, ~50K followers). Would promote enthusiastically.</p>
+                </div>
+
+                <div class="contact-card" data-type="author">
+                    <div class="contact-header">
+                        <h3>Iain McGilchrist</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">"The Master and His Emissary" Author</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Argues Renaissance had holistic consciousness. References hermetic tradition and symbolic thinking. "The Matter with Things" - massive influence.
+                    </div>
+                    <div class="contact-links">
+                        <span>Channel McGilchrist</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through Channel McGilchrist. Historical narrative support.</p>
+                </div>
+
+                <div class="contact-card" data-type="author">
+                    <div class="contact-header">
+                        <h3>Steven Johnson</h3>
+                        <span class="badge badge-warning">$25K-$50K / 250K followers</span>
+                    </div>
+                    <p class="contact-role">Bestselling History Author</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Writes about history of innovation. Renaissance as crucial innovation period. Networks of ideas. Could frame texts as part of innovation history.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/stevenbjohnson" target="_blank">@stevenbjohnson</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter (~250K followers). Innovation narrative pitch.</p>
+                </div>
+
+                <div class="contact-card" data-type="author">
+                    <div class="contact-header">
+                        <h3>Anthony Grafton</h3>
+                        <span class="badge badge-success">Academic credibility</span>
+                    </div>
+                    <p class="contact-role">Premier Renaissance Historian</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Studies magic, astrology, learning in Renaissance. "Cardano's Cosmos" author. Could write introduction/endorsement. Highly respected voice.
+                    </div>
+                    <div class="contact-links">
+                        <span>Princeton University</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Academic email. Advisory board, scholarly legitimacy.</p>
                 </div>
 
                 <div class="contact-card" data-type="author">
                     <div class="contact-header">
                         <h3>Joscelyn Godwin</h3>
-                        <span class="badge badge-info">$5K + influence</span>
+                        <span class="badge badge-info">Direct alignment</span>
                     </div>
-                    <p class="contact-role">Scholar, Colgate University</p>
-                    <p class="contact-why">Prolific translator and scholar of esotericism. Could advise on translation quality.</p>
+                    <p class="contact-role">Esoteric Scholar, Translator</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        "The Pagan Dream of the Renaissance" author. Translates and studies Renaissance hermetic texts. Career devoted to Western esoteric tradition.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.colgate.edu/about/directory/jgodwin" target="_blank">Colgate Profile</a>
+                        <span>Colgate University</span>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Academic email. Translation advisory, scholarly endorsement.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Academic email. Direct beneficiary and promoter.</p>
                 </div>
 
                 <div class="contact-card" data-type="author">
                     <div class="contact-header">
-                        <h3>Peter Kingsley</h3>
-                        <span class="badge badge-warning">$10K-$50K</span>
+                        <h3>Mitch Horowitz</h3>
+                        <span class="badge badge-warning">$5K-$25K + connections</span>
                     </div>
-                    <p class="contact-role">Author, Ancient Philosophy</p>
-                    <p class="contact-why">Writes on pre-Socratic philosophy and mysticism. Devoted following.</p>
+                    <p class="contact-role">Occult History Author</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        VP at Penguin/Tarcher. Has publishing connections AND collector network. Can open doors to both donors and publishers.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://peterkingsley.org" target="_blank">Website</a>
+                        <a href="https://twitter.com/MitchHorowitz" target="_blank">@MitchHorowitz</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Through website. Ancient wisdom preservation angle.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Direct Twitter/email. Publishing partnership + donor introductions.</p>
                 </div>
 
                 <div class="contact-card" data-type="author">
                     <div class="contact-header">
-                        <h3>Christopher Bamford</h3>
-                        <span class="badge badge-info">$5K + influence</span>
+                        <h3>Wouter Hanegraaff</h3>
+                        <span class="badge badge-success">Essential partner</span>
                     </div>
-                    <p class="contact-role">Editor-in-Chief, SteinerBooks</p>
-                    <p class="contact-why">Anthroposophical publishing. Connection to Steiner/Waldorf community.</p>
+                    <p class="contact-role">Professor, University of Amsterdam</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        World's leading academic expert on Western esotericism. AT THE SAME UNIVERSITY as the library. Must-have partnership.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://steinerbooks.org" target="_blank">SteinerBooks</a>
+                        <a href="https://www.uva.nl/en/profile/h/a/w.j.hanegraaff/w.j.hanegraaff.html" target="_blank">UvA Profile</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Through publisher. Anthroposophical audience.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Formal academic email. Partnership, advisory board.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative Industry -->
+        <section class="contact-section" data-category="creative">
+            <div class="section-header">
+                <h2>Creative Industry (Gaming, Music, Comics)</h2>
+                <span class="contact-count">12 contacts</span>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card" data-type="creative">
+                    <div class="contact-header">
+                        <h3>Hidetaka Miyazaki</h3>
+                        <span class="badge badge-success">Massive influence</span>
+                    </div>
+                    <p class="contact-role">Dark Souls, Elden Ring Creator</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Uses alchemical transformation symbolism, hermetic philosophy, Gnostic themes. Extensive alchemical color symbolism (nigredo, albedo, rubedo). 25M+ copies sold.
+                    </div>
+                    <div class="contact-links">
+                        <span>FromSoftware PR</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Through FromSoftware official channels. Research collaboration.</p>
                 </div>
 
-                <div class="contact-card" data-type="author">
+                <div class="contact-card" data-type="creative">
                     <div class="contact-header">
-                        <h3>Dan Attrell</h3>
-                        <span class="badge badge-info">$5K + audience</span>
+                        <h3>Grant Morrison</h3>
+                        <span class="badge badge-warning">$10K-$25K</span>
                     </div>
-                    <p class="contact-role">YouTube: Modern Hermeticist</p>
-                    <p class="contact-why">Growing YouTube channel on Hermeticism. Can promote to engaged audience.</p>
+                    <p class="contact-role">Comic Writer (The Invisibles, Batman)</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Practicing chaos magician. "The Invisibles" incorporates Hermetic Qabalah, alchemy, Crowley. Essentially a grimoire in comic form.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://twitter.com/DanAttrell" target="_blank">@DanAttrell</a>
-                        <a href="https://www.youtube.com/@ModernHermeticist" target="_blank">YouTube</a>
+                        <a href="https://twitter.com/gaborion" target="_blank">@grantmorrison</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM. Interview, collaboration, audience access.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Via social media, publishers. Primary source access pitch.</p>
+                </div>
+
+                <div class="contact-card" data-type="creative">
+                    <div class="contact-header">
+                        <h3>Alan Moore</h3>
+                        <span class="badge badge-success">Legend status</span>
+                    </div>
+                    <p class="contact-role">Watchmen, Promethea Creator</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Self-described ceremonial magician. "Promethea" is 32-issue exploration of Hermetic Qabalah. Extensively researched authentic magical sources.
+                    </div>
+                    <div class="contact-links">
+                        <span>Top Shelf/Avatar Press</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Via publisher. No social media but rare interviews.</p>
+                </div>
+
+                <div class="contact-card" data-type="creative">
+                    <div class="contact-header">
+                        <h3>Patrick Rothfuss</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Fantasy Author (Kingkiller Chronicle)</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Created "Sympathy" magic system based on actual alchemical principles. Uses "as above, so below," binding, true names from Hermetic tradition.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/PatrickRothfuss" target="_blank">@PatrickRothfuss</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Very active on social media, responsive to scholarly material.</p>
+                </div>
+
+                <div class="contact-card" data-type="creative">
+                    <div class="contact-header">
+                        <h3>Kenneth Hite</h3>
+                        <span class="badge badge-info">$10K-$25K</span>
+                    </div>
+                    <p class="contact-role">RPG Designer (GURPS, Vampire)</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Renowned for historical research into occultism for RPG design. "Suppressed Transmission" columns showcase deep primary source research.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/kennethhite" target="_blank">@kennethhite</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Very active on Twitter, podcast (Ken and Robin Talk About Stuff). Most accessible.</p>
+                </div>
+
+                <div class="contact-card" data-type="creative">
+                    <div class="contact-header">
+                        <h3>Tobias Forge (Ghost)</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Ghost Band Founder, Grammy Winner</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Ghost's entire aesthetic draws from occult imagery, Satanic ritual, esoteric symbolism. References grimoires and occult philosophy. Massive global following.
+                    </div>
+                    <div class="contact-links">
+                        <span>Loma Vista Records</span>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Via management/label (Loma Vista). Visual/research collaboration.</p>
+                </div>
+
+                <div class="contact-card" data-type="creative">
+                    <div class="contact-header">
+                        <h3>Bruce Dickinson</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Iron Maiden Vocalist, Author</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Writes on historical and esoteric topics. "Seventh Son of a Seventh Son" draws from occult tradition. Published author, known for extensive reading.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/BruceDickinson" target="_blank">@BruceDickinson</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Active on social media, does book tours and speaking events.</p>
                 </div>
             </div>
         </section>
@@ -449,10 +850,13 @@
                 <div class="contact-card" data-type="podcast">
                     <div class="contact-header">
                         <h3>Lex Fridman</h3>
-                        <span class="badge badge-success">Massive reach</span>
+                        <span class="badge badge-success">2M+ reach</span>
                     </div>
                     <p class="contact-role">Lex Fridman Podcast</p>
-                    <p class="contact-why">2M+ subscribers. AI + philosophy intersection. Could be huge exposure.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        AI + philosophy intersection. 2M+ subscribers. Frequent guests include philosophers, scientists, deep thinkers. Could be massive exposure.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/lexfridman" target="_blank">@lexfridman</a>
                         <a href="https://lexfridman.com/guest-request" target="_blank">Guest Request</a>
@@ -463,127 +867,17 @@
                 <div class="contact-card" data-type="podcast">
                     <div class="contact-header">
                         <h3>Duncan Trussell</h3>
-                        <span class="badge badge-warning">$10K-$50K + reach</span>
+                        <span class="badge badge-warning">$10K-$50K</span>
                     </div>
                     <p class="contact-role">Duncan Trussell Family Hour</p>
-                    <p class="contact-why">His entire audience is interested in esotericism. Perfect fit. Can donate + promote.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Entire audience is interested in esotericism. Perfect fit. Very accessible to interesting projects.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/duncantrussell" target="_blank">@duncantrussell</a>
-                        <a href="http://duncantrussell.com" target="_blank">Website</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM. He's very accessible to interesting projects.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>Aubrey Marcus</h3>
-                        <span class="badge badge-warning">$50K-$100K</span>
-                    </div>
-                    <p class="contact-role">Aubrey Marcus Podcast</p>
-                    <p class="contact-why">Sold Onnit to Unilever. Interested in transformation, alchemy. Wealthy + influential.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/AubreyMarcus" target="_blank">@AubreyMarcus</a>
-                        <a href="https://www.aubreymarcus.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM or website contact. Transformation/alchemy angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>Chris Brennan</h3>
-                        <span class="badge badge-info">Influence</span>
-                    </div>
-                    <p class="contact-role">The Astrology Podcast</p>
-                    <p class="contact-why">Largest astrology podcast. Audience interested in ancient wisdom traditions.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/ChrisBrennanPod" target="_blank">@ChrisBrennanPod</a>
-                        <a href="https://theastrologypodcast.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email through website. Renaissance astrology texts angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>Gordon White</h3>
-                        <span class="badge badge-info">$5K + influence</span>
-                    </div>
-                    <p class="contact-role">Rune Soup Podcast</p>
-                    <p class="contact-why">Popular chaos magic/occult podcast. Engaged audience interested in primary sources.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/gordon_white" target="_blank">@gordon_white</a>
-                        <a href="https://runesoup.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email through Rune Soup. Premium member promotion opportunity.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>Greg Carlwood</h3>
-                        <span class="badge badge-info">Influence</span>
-                    </div>
-                    <p class="contact-role">The Higherside Chats</p>
-                    <p class="contact-why">Alternative history/esoteric podcast. Large listener base.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/THCpodcast" target="_blank">@THCpodcast</a>
-                        <a href="https://thehighersidechats.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Guest booking through website. Hidden knowledge angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>Miguel Conner</h3>
-                        <span class="badge badge-info">$5K + influence</span>
-                    </div>
-                    <p class="contact-role">Aeon Byte Gnostic Radio</p>
-                    <p class="contact-why">Long-running Gnostic podcast. Niche but devoted audience.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/AeonByte" target="_blank">@AeonByte</a>
-                        <a href="https://thegodabovegod.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email/Twitter. Gnostic and Hermetic texts angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>Jeffrey Mishlove</h3>
-                        <span class="badge badge-info">Influence</span>
-                    </div>
-                    <p class="contact-role">New Thinking Allowed</p>
-                    <p class="contact-why">Long-running consciousness studies show. Academic credibility + reach.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/JeffreyMishlove" target="_blank">@JeffreyMishlove</a>
-                        <a href="https://newthinkingallowed.org" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email through website. Consciousness/philosophy angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>Greg Kaminsky</h3>
-                        <span class="badge badge-info">$5K + influence</span>
-                    </div>
-                    <p class="contact-role">Occult of Personality</p>
-                    <p class="contact-why">One of the longest-running occult podcasts. Dedicated niche audience.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/occlofc" target="_blank">@occlofc</a>
-                        <a href="https://occultofpersonality.net" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email through website. Perfect audience fit.</p>
-                </div>
-
-                <div class="contact-card" data-type="podcast">
-                    <div class="contact-header">
-                        <h3>JF Martel & Phil Ford</h3>
-                        <span class="badge badge-info">Influence</span>
-                    </div>
-                    <p class="contact-role">Weird Studies Podcast</p>
-                    <p class="contact-why">Philosophy + weirdness. Academic + accessible. Growing audience.</p>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/weaboringstudies" target="_blank">@weirdstudies</a>
-                        <a href="https://www.weirdstudies.com" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Twitter or website. Philosophy + Renaissance texts.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM. He's very responsive.</p>
                 </div>
 
                 <div class="contact-card" data-type="podcast">
@@ -592,11 +886,62 @@
                         <span class="badge badge-warning">$50K-$100K</span>
                     </div>
                     <p class="contact-role">Tetragrammaton Podcast</p>
-                    <p class="contact-why">Legendary producer, new podcast, interested in creativity and mysticism.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Legendary producer interested in creativity and mysticism. New podcast exploring consciousness and art. "Tetragrammaton" = Hebrew name of God.
+                    </div>
                     <div class="contact-links">
                         <a href="https://twitter.com/RickRubin" target="_blank">@RickRubin</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Twitter DM. Creative process + ancient wisdom.</p>
+                </div>
+
+                <div class="contact-card" data-type="podcast">
+                    <div class="contact-header">
+                        <h3>Andrew Huberman</h3>
+                        <span class="badge badge-warning">$25K-$50K</span>
+                    </div>
+                    <p class="contact-role">Huberman Lab Podcast</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Bridges science and practical wisdom for human optimization. Renaissance approach to mind-body integration and optimal living.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/hubermanlab" target="_blank">@hubermanlab</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Twitter DM, through Stanford, podcast network.</p>
+                </div>
+
+                <div class="contact-card" data-type="podcast">
+                    <div class="contact-header">
+                        <h3>Gordon White</h3>
+                        <span class="badge badge-info">$5K + influence</span>
+                    </div>
+                    <p class="contact-role">Rune Soup Podcast</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Popular chaos magic/occult podcast. Engaged audience interested in primary sources. Premium member promotion opportunity.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/gordon_white" target="_blank">@gordon_white</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Email through Rune Soup. Perfect audience fit.</p>
+                </div>
+
+                <div class="contact-card" data-type="podcast">
+                    <div class="contact-header">
+                        <h3>Chris Brennan</h3>
+                        <span class="badge badge-info">Influence</span>
+                    </div>
+                    <p class="contact-role">The Astrology Podcast</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Largest astrology podcast. Audience interested in ancient wisdom traditions. Renaissance astrology texts angle.
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/ChrisBrennanPod" target="_blank">@ChrisBrennanPod</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Email through website. Renaissance astrology texts angle.</p>
                 </div>
             </div>
         </section>
@@ -611,27 +956,32 @@
             <div class="contact-grid">
                 <div class="contact-card" data-type="org">
                     <div class="contact-header">
-                        <h3>Theosophical Society</h3>
-                        <span class="badge badge-warning">$10K-$50K potential</span>
+                        <h3>Long Now Foundation</h3>
+                        <span class="badge badge-warning">$25K-$100K</span>
                     </div>
-                    <p class="contact-role">International HQ: Adyar, Chennai</p>
-                    <p class="contact-why">Large membership interested in esoteric texts. Multiple national sections with budgets.</p>
+                    <p class="contact-role">San Francisco</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        10,000 year thinking. Knowledge preservation is core mission. Kevin Kelly & Stewart Brand on board.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.ts-adyar.org" target="_blank">International</a>
-                        <a href="https://www.theosophical.org" target="_blank">US Section</a>
+                        <a href="https://longnow.org" target="_blank">longnow.org</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact US Section (Wheaton, IL) or international. Partnership proposal.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Email or through Kelly/Brand. Long-term preservation frame.</p>
                 </div>
 
                 <div class="contact-card" data-type="org">
                     <div class="contact-header">
                         <h3>AMORC (Rosicrucian Order)</h3>
-                        <span class="badge badge-warning">$25K-$100K potential</span>
+                        <span class="badge badge-warning">$25K-$100K</span>
                     </div>
                     <p class="contact-role">San Jose, CA headquarters</p>
-                    <p class="contact-why">Wealthy organization with museum. Deeply interested in Rosicrucian primary sources.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Wealthy organization with museum. Deeply interested in Rosicrucian primary sources. Renaissance Rosicrucian texts emphasis.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.rosicrucian.org" target="_blank">Website</a>
+                        <a href="https://www.rosicrucian.org" target="_blank">rosicrucian.org</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Formal letter to Grand Lodge. Rosicrucian texts emphasis.</p>
                 </div>
@@ -642,63 +992,30 @@
                         <span class="badge badge-warning">$10K-$25K</span>
                     </div>
                     <p class="contact-role">Los Angeles (Manly P. Hall's org)</p>
-                    <p class="contact-why">Founded by Manly P. Hall to preserve esoteric knowledge. Perfect mission alignment.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Founded by Manly P. Hall to preserve esoteric knowledge. Perfect mission alignment with preservation goals.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.prs.org" target="_blank">Website</a>
+                        <a href="https://www.prs.org" target="_blank">prs.org</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Email president/director. Partnership on Hall's vision.</p>
                 </div>
 
                 <div class="contact-card" data-type="org">
                     <div class="contact-header">
-                        <h3>Swedenborg Foundation</h3>
+                        <h3>Theosophical Society</h3>
                         <span class="badge badge-warning">$10K-$50K</span>
                     </div>
-                    <p class="contact-role">West Chester, PA</p>
-                    <p class="contact-why">Well-funded foundation. Interested in spiritual/philosophical texts.</p>
+                    <p class="contact-role">International (Adyar) & US (Wheaton)</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Large membership interested in esoteric texts. Multiple national sections with budgets. Access to thousands of potential small donors.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://swedenborg.com" target="_blank">Website</a>
+                        <a href="https://www.theosophical.org" target="_blank">theosophical.org</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Grant application or partnership inquiry. Spiritual texts angle.</p>
-                </div>
-
-                <div class="contact-card" data-type="org">
-                    <div class="contact-header">
-                        <h3>Anthroposophical Society</h3>
-                        <span class="badge badge-warning">$10K-$50K</span>
-                    </div>
-                    <p class="contact-role">Dornach, Switzerland (Goetheanum)</p>
-                    <p class="contact-why">Large international org. Interested in Steiner's sources and influences.</p>
-                    <div class="contact-links">
-                        <a href="https://www.goetheanum.org" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact General Secretariat. Renaissance roots of anthroposophy.</p>
-                </div>
-
-                <div class="contact-card" data-type="org">
-                    <div class="contact-header">
-                        <h3>Builders of the Adytum (BOTA)</h3>
-                        <span class="badge badge-info">$5K-$15K</span>
-                    </div>
-                    <p class="contact-role">Los Angeles</p>
-                    <p class="contact-why">Hermetic/Qabalistic order. Interested in primary source texts.</p>
-                    <div class="contact-links">
-                        <a href="https://www.bota.org" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact through website. Tarot/Qabalah source texts.</p>
-                </div>
-
-                <div class="contact-card" data-type="org">
-                    <div class="contact-header">
-                        <h3>Long Now Foundation</h3>
-                        <span class="badge badge-warning">$25K-$100K</span>
-                    </div>
-                    <p class="contact-role">San Francisco</p>
-                    <p class="contact-why">10,000 year thinking. Knowledge preservation is core mission.</p>
-                    <div class="contact-links">
-                        <a href="https://longnow.org" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Email or through Kevin Kelly/Stewart Brand. Long-term preservation.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Contact US Section (Wheaton, IL). Partnership proposal.</p>
                 </div>
 
                 <div class="contact-card" data-type="org">
@@ -707,17 +1024,19 @@
                         <span class="badge badge-info">Partnership</span>
                     </div>
                     <p class="contact-role">San Francisco</p>
-                    <p class="contact-why">Could host digitized texts. Partnership would add credibility and reach.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Could host digitized texts. Partnership adds credibility and reach. Free hosting + massive audience.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://archive.org" target="_blank">Website</a>
                         <a href="https://twitter.com/internetarchive" target="_blank">@internetarchive</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Partnership inquiry. Free hosting + massive audience.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Partnership inquiry. Distribution + credibility.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Collectors & Dealers -->
+        <!-- Collectors -->
         <section class="contact-section" data-category="collector">
             <div class="section-header">
                 <h2>Collectors & Rare Book Dealers</h2>
@@ -727,67 +1046,34 @@
             <div class="contact-grid">
                 <div class="contact-card" data-type="collector">
                     <div class="contact-header">
-                        <h3>Christie's Books & Manuscripts</h3>
-                        <span class="badge badge-success">Connector</span>
-                    </div>
-                    <p class="contact-role">Auction House Department</p>
-                    <p class="contact-why">Can introduce to wealthy collectors. Sponsor auction events.</p>
-                    <div class="contact-links">
-                        <a href="https://www.christies.com/departments/books-manuscripts" target="_blank">Department</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact department head. Partnership proposal for collector introductions.</p>
-                </div>
-
-                <div class="contact-card" data-type="collector">
-                    <div class="contact-header">
-                        <h3>Sotheby's Books & Manuscripts</h3>
-                        <span class="badge badge-success">Connector</span>
-                    </div>
-                    <p class="contact-role">Auction House Department</p>
-                    <p class="contact-why">Access to high-net-worth rare book collectors.</p>
-                    <div class="contact-links">
-                        <a href="https://www.sothebys.com/en/departments/books-manuscripts" target="_blank">Department</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Similar to Christie's. Sponsor event or collector introduction.</p>
-                </div>
-
-                <div class="contact-card" data-type="collector">
-                    <div class="contact-header">
                         <h3>Grolier Club Members</h3>
                         <span class="badge badge-success">$25K-$100K+ each</span>
                     </div>
                     <p class="contact-role">NYC Bibliophile Society</p>
-                    <p class="contact-why">America's premier book collector club. Members are wealthy and passionate.</p>
-                    <div class="contact-links">
-                        <a href="https://www.grolierclub.org" target="_blank">Website</a>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        America's premier book collector club. Members are wealthy and passionate. Digitization preserves content while maintaining rarity.
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Request to present at meeting. Network through member introductions.</p>
+                    <div class="contact-links">
+                        <a href="https://www.grolierclub.org" target="_blank">grolierclub.org</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Request to present at meeting. Network through members.</p>
                 </div>
 
                 <div class="contact-card" data-type="collector">
                     <div class="contact-header">
-                        <h3>Maggs Bros Ltd</h3>
-                        <span class="badge badge-info">Connector</span>
+                        <h3>Christie's Books & Manuscripts</h3>
+                        <span class="badge badge-success">Connector</span>
                     </div>
-                    <p class="contact-role">London Rare Book Dealer</p>
-                    <p class="contact-why">Premier dealer in esoteric/occult books. Client list is your donor list.</p>
+                    <p class="contact-role">Auction House Department</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Can introduce to wealthy collectors. Sponsor auction events. Client list is potential donor list.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.maggs.com" target="_blank">Website</a>
+                        <a href="https://www.christies.com/departments/books-manuscripts" target="_blank">Christie's</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Partnership inquiry. They can introduce collectors.</p>
-                </div>
-
-                <div class="contact-card" data-type="collector">
-                    <div class="contact-header">
-                        <h3>Peter Harrington</h3>
-                        <span class="badge badge-info">Connector</span>
-                    </div>
-                    <p class="contact-role">London Rare Book Dealer</p>
-                    <p class="contact-why">High-end dealer with wealthy collector clients.</p>
-                    <div class="contact-links">
-                        <a href="https://www.peterharrington.co.uk" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Partnership for collector introductions.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Contact department head. Partnership for collector intros.</p>
                 </div>
 
                 <div class="contact-card" data-type="collector">
@@ -796,86 +1082,56 @@
                         <span class="badge badge-info">$10K + connections</span>
                     </div>
                     <p class="contact-role">Specialist Occult Dealer</p>
-                    <p class="contact-why">Specializes in occult/esoteric books. Knows every serious collector.</p>
-                    <div class="contact-links">
-                        <a href="https://www.weiserantiquarian.com" target="_blank">Website</a>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Specializes in occult/esoteric books. Knows every serious collector. They're enthusiasts themselves.
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Direct email. They're enthusiasts themselves.</p>
+                    <div class="contact-links">
+                        <a href="https://www.weiserantiquarian.com" target="_blank">weiserantiquarian.com</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Direct email. Partnership for collector introductions.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Academic Institutions -->
+        <!-- Academic -->
         <section class="contact-section" data-category="academic">
             <div class="section-header">
                 <h2>Academic Institutions</h2>
-                <span class="contact-count">10 contacts</span>
+                <span class="contact-count">8 contacts</span>
             </div>
 
             <div class="contact-grid">
                 <div class="contact-card" data-type="academic">
                     <div class="contact-header">
-                        <h3>Warburg Institute</h3>
-                        <span class="badge badge-success">Key partner</span>
-                    </div>
-                    <p class="contact-role">University of London</p>
-                    <p class="contact-why">Premier institution for Renaissance cultural history. Scholarly credibility essential.</p>
-                    <div class="contact-links">
-                        <a href="https://warburg.sas.ac.uk" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact director. Academic partnership, advisory board.</p>
-                </div>
-
-                <div class="contact-card" data-type="academic">
-                    <div class="contact-header">
                         <h3>Center for History of Hermetic Philosophy</h3>
-                        <span class="badge badge-success">Key partner</span>
+                        <span class="badge badge-success">Essential partner</span>
                     </div>
                     <p class="contact-role">University of Amsterdam</p>
-                    <p class="contact-why">Literally next door to the library. Wouter Hanegraaff is here. Must-have partnership.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Literally next door to the library. Wouter Hanegraaff is here. Must-have partnership for credibility.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://www.uva.nl/en/about-the-uva/organisation/faculties/faculty-of-humanities/disciplines/religious-studies/research/hhp.html" target="_blank">Website</a>
+                        <a href="https://www.uva.nl" target="_blank">UvA</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Contact Hanegraaff directly. Formal research partnership.</p>
                 </div>
 
                 <div class="contact-card" data-type="academic">
                     <div class="contact-header">
-                        <h3>Villa I Tatti</h3>
-                        <span class="badge badge-info">Partner</span>
+                        <h3>Warburg Institute</h3>
+                        <span class="badge badge-success">Key partner</span>
                     </div>
-                    <p class="contact-role">Harvard Center for Renaissance Studies</p>
-                    <p class="contact-why">Harvard's Florence center. Fellowship programs, scholarly connections.</p>
+                    <p class="contact-role">University of London</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Premier institution for Renaissance cultural history. Scholarly credibility essential for academic legitimacy.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://itatti.harvard.edu" target="_blank">Website</a>
+                        <a href="https://warburg.sas.ac.uk" target="_blank">Warburg</a>
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact director. Research collaboration.</p>
-                </div>
-
-                <div class="contact-card" data-type="academic">
-                    <div class="contact-header">
-                        <h3>Folger Shakespeare Library</h3>
-                        <span class="badge badge-info">Partner</span>
-                    </div>
-                    <p class="contact-role">Washington, DC</p>
-                    <p class="contact-why">Major Renaissance collection. Could co-host events, cross-promote.</p>
-                    <div class="contact-links">
-                        <a href="https://www.folger.edu" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact research director. Partnership proposal.</p>
-                </div>
-
-                <div class="contact-card" data-type="academic">
-                    <div class="contact-header">
-                        <h3>Newberry Library</h3>
-                        <span class="badge badge-info">Partner</span>
-                    </div>
-                    <p class="contact-role">Chicago</p>
-                    <p class="contact-why">Strong Renaissance/early modern collection. Research partnership potential.</p>
-                    <div class="contact-links">
-                        <a href="https://www.newberry.org" target="_blank">Website</a>
-                    </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact Center for Renaissance Studies director.</p>
+                    <p class="contact-approach"><strong>Approach:</strong> Contact director. Academic partnership, advisory board.</p>
                 </div>
 
                 <div class="contact-card" data-type="academic">
@@ -884,24 +1140,30 @@
                         <span class="badge badge-info">Partner</span>
                     </div>
                     <p class="contact-role">Gnosticism, Esotericism, Mysticism</p>
-                    <p class="contact-why">Only US graduate program in esotericism. Student involvement, credibility.</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Only US graduate program in esotericism. Jeffrey Kripal leads. Student involvement, credibility.
+                    </div>
                     <div class="contact-links">
-                        <a href="https://gem.rice.edu" target="_blank">Website</a>
+                        <a href="https://gem.rice.edu" target="_blank">GEM</a>
                     </div>
                     <p class="contact-approach"><strong>Approach:</strong> Contact Jeffrey Kripal. Student research opportunities.</p>
                 </div>
 
                 <div class="contact-card" data-type="academic">
                     <div class="contact-header">
-                        <h3>University of Exeter EXESESO</h3>
+                        <h3>Villa I Tatti</h3>
                         <span class="badge badge-info">Partner</span>
                     </div>
-                    <p class="contact-role">Centre for Study of Esotericism</p>
-                    <p class="contact-why">European academic hub for esotericism studies.</p>
-                    <div class="contact-links">
-                        <a href="https://humanities.exeter.ac.uk/history/research/centres/exeseso/" target="_blank">Website</a>
+                    <p class="contact-role">Harvard Center for Renaissance Studies</p>
+                    <div class="contact-hook">
+                        <span class="hook-label">Hook</span>
+                        Harvard's Florence center. Fellowship programs, scholarly connections. Prestige partnership.
                     </div>
-                    <p class="contact-approach"><strong>Approach:</strong> Contact centre director. Research partnership.</p>
+                    <div class="contact-links">
+                        <a href="https://itatti.harvard.edu" target="_blank">I Tatti</a>
+                    </div>
+                    <p class="contact-approach"><strong>Approach:</strong> Contact director. Research collaboration.</p>
                 </div>
             </div>
         </section>
@@ -910,39 +1172,47 @@
 
     <script src="app.js"></script>
     <style>
+        .highlight-link {
+            color: var(--accent-rust) !important;
+            font-weight: 600 !important;
+        }
         .contact-section {
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--accent);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--accent-rust);
         }
         .section-header h2 {
             margin: 0;
+            font-size: 1.6rem;
         }
         .contact-count {
+            font-family: 'Inter', sans-serif;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 20px;
         }
 
         .contact-card {
-            background: var(--bg-card);
-            border-radius: 8px;
-            padding: 20px;
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
             border: 1px solid var(--border);
+            transition: all 0.2s;
         }
         .contact-card:hover {
-            border-color: var(--accent);
+            border-color: var(--accent-rust);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
         }
         .contact-header {
             display: flex;
@@ -952,17 +1222,35 @@
         }
         .contact-header h3 {
             margin: 0;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.3rem;
             color: var(--text-primary);
         }
         .contact-role {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-        .contact-why {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--accent-rust);
+            font-size: 0.85rem;
             margin-bottom: 12px;
+        }
+        .contact-hook {
+            background: var(--bg-warm);
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            border-left: 3px solid var(--accent-gold);
+        }
+        .hook-label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
         }
         .contact-links {
             display: flex;
@@ -970,16 +1258,17 @@
             margin-bottom: 12px;
         }
         .contact-links a {
-            color: var(--accent);
+            color: var(--accent-rust);
             text-decoration: none;
+            font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
         }
         .contact-links a:hover {
             text-decoration: underline;
         }
         .contact-approach {
-            background: var(--bg-dark);
-            padding: 10px;
+            background: var(--bg-warm);
+            padding: 12px;
             border-radius: 6px;
             font-size: 0.85rem;
             color: var(--text-muted);
