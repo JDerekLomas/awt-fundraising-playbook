@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Wisdom Trust - Pitch Deck</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: var(--bg-paper);
+        }
+        .deck-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .slide {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 60px 80px;
+            margin-bottom: 40px;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            page-break-after: always;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .slide h1 {
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .slide h2 {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+        }
+        .slide h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .slide p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .slide-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 40px;
+        }
+
+        /* Title slide */
+        .slide.title {
+            text-align: center;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+        }
+        .slide.title h1 {
+            color: white;
+            font-size: 3.5rem;
+        }
+        .slide.title .slide-subtitle {
+            color: #fbd38d;
+        }
+        .slide.title p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-warm);
+            border-radius: 12px;
+        }
+        .stat-box .number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        .stat-box .label {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Quote */
+        .quote {
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--text-primary);
+            text-align: center;
+            padding: 40px;
+            border-left: 4px solid var(--accent);
+            background: var(--bg-warm);
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Fund allocation */
+        .allocation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .allocation-item {
+            background: var(--bg-warm);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+        .allocation-item h4 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .allocation-item .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .allocation-item p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Impact levels */
+        .impact-row {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .impact-row:last-child {
+            border-bottom: none;
+        }
+        .impact-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            width: 150px;
+        }
+        .impact-arrow {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin: 0 20px;
+        }
+        .impact-result {
+            flex: 1;
+        }
+        .impact-result h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        .impact-result p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Process flow */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+        }
+        .process-step {
+            text-align: center;
+            flex: 1;
+        }
+        .process-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .process-step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .process-step p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .process-arrow {
+            font-size: 2rem;
+            color: var(--accent);
+            padding: 0 10px;
+        }
+
+        /* Authors */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .author-box {
+            background: var(--bg-warm);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .author-box h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .author-box p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA slide */
+        .slide.cta {
+            text-align: center;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+        }
+        .slide.cta h2 {
+            color: #fbd38d;
+        }
+        .slide.cta p {
+            color: rgba(255,255,255,0.9);
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .cta-btn {
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+        .cta-btn.primary {
+            background: #fbd38d;
+            color: #1a365d;
+        }
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Matching banner */
+        .match-banner {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .match-banner h3 {
+            color: white;
+            font-size: 1.8rem;
+        }
+        .match-banner p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.2rem;
+        }
+
+        /* Navigation */
+        .deck-nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 16px;
+            z-index: 100;
+        }
+        .deck-nav button {
+            background: var(--bg-warm);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .deck-nav button:hover {
+            background: var(--accent);
+            color: white;
+        }
+        .deck-nav .slide-indicator {
+            padding: 10px 16px;
+            color: var(--text-muted);
+        }
+
+        /* Budget breakdown */
+        .budget-table {
+            width: 100%;
+            margin: 30px 0;
+            border-collapse: collapse;
+        }
+        .budget-table th, .budget-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .budget-table th {
+            background: var(--bg-warm);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .budget-table .amount {
+            font-weight: 700;
+            color: var(--accent);
+            text-align: right;
+        }
+        .budget-table .percent {
+            color: var(--text-muted);
+            text-align: right;
+        }
+        .budget-table tr:last-child {
+            background: var(--bg-warm);
+            font-weight: 600;
+        }
+
+        /* Print styles */
+        @media print {
+            .deck-nav { display: none; }
+            .slide {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .slide {
+                padding: 40px 30px;
+                min-height: auto;
+            }
+            .slide h1 { font-size: 2rem; }
+            .slide h2 { font-size: 1.6rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 20px; }
+            .allocation-grid { grid-template-columns: 1fr; }
+            .process-flow { flex-direction: column; gap: 20px; }
+            .process-arrow { transform: rotate(90deg); }
+            .authors-grid { grid-template-columns: 1fr; }
+            .deck-nav {
+                bottom: 10px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="deck-container">
+
+        <!-- Slide 1: Title -->
+        <div class="slide title" id="slide-1">
+            <h1>Ancient Wisdom Trust</h1>
+            <p class="slide-subtitle">Unlocking 500 Years of Hidden Knowledge</p>
+            <p>A $500,000 campaign to digitize and translate<br>5,000 rare Renaissance texts</p>
+            <p style="margin-top: 40px; font-size: 1rem; opacity: 0.8;">December 2024</p>
+            <span class="slide-number">1</span>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide" id="slide-2">
+            <h2>The Problem</h2>
+            <div class="quote">
+                "95% of Renaissance books have never been translated.<br>
+                The intellectual DNA of the modern world is locked away."
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="number">95%</span>
+                    <span class="label">of Renaissance books lack translations</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">70%</span>
+                    <span class="label">remain undigitized</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">25,000+</span>
+                    <span class="label">rare texts in the collection</span>
+                </div>
+            </div>
+            <span class="slide-number">2</span>
+        </div>
+
+        <!-- Slide 3: The Collection -->
+        <div class="slide" id="slide-3">
+            <h2>The Bibliotheca Philosophica Hermetica</h2>
+            <p style="margin-bottom: 30px;">Amsterdam's UNESCO-recognized collection of rare texts on philosophy, science, and the Western esoteric tradition.</p>
+            <div class="authors-grid">
+                <div class="author-box">
+                    <h4>Marsilio Ficino</h4>
+                    <p>Translated Plato, founded the Florentine Academy</p>
+                </div>
+                <div class="author-box">
+                    <h4>Giordano Bruno</h4>
+                    <p>Cosmologist burned at the stake in 1600</p>
+                </div>
+                <div class="author-box">
+                    <h4>Cornelius Agrippa</h4>
+                    <p>Three Books of Occult Philosophy</p>
+                </div>
+                <div class="author-box">
+                    <h4>Paracelsus</h4>
+                    <p>Father of toxicology and chemical medicine</p>
+                </div>
+                <div class="author-box">
+                    <h4>Hermes Trismegistus</h4>
+                    <p>Hermetic texts that shaped Renaissance thought</p>
+                </div>
+                <div class="author-box">
+                    <h4>+ Thousands More</h4>
+                    <p>Alchemy, Kabbalah, Rosicrucianism, early science</p>
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 1rem;">These texts influenced Newton, Copernicus, Jung, and the foundations of Western thought.</p>
+            <span class="slide-number">3</span>
+        </div>
+
+        <!-- Slide 4: The Solution -->
+        <div class="slide" id="slide-4">
+            <h2>Our Solution: AI-Powered Translation at Scale</h2>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-icon">📚</div>
+                    <h4>Digitize</h4>
+                    <p>High-resolution scanning preserves fragile originals</p>
+                </div>
+                <span class="process-arrow">→</span>
+                <div class="process-step">
+                    <div class="process-icon">🤖</div>
+                    <h4>AI Translate</h4>
+                    <p>Machine translation from Latin, Greek, Hebrew</p>
+                </div>
+                <span class="process-arrow">→</span>
+                <div class="process-step">
+                    <div class="process-icon">👨‍🎓</div>
+                    <h4>Expert Review</h4>
+                    <p>Scholars verify and annotate translations</p>
+                </div>
+                <span class="process-arrow">→</span>
+                <div class="process-step">
+                    <div class="process-icon">🌍</div>
+                    <h4>Publish Free</h4>
+                    <p>Open access for scholars and AI training</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px;">
+                Traditional translation: 1-2 books per scholar per year.<br>
+                <strong>Our approach: Hundreds of texts translated annually.</strong>
+            </p>
+            <span class="slide-number">4</span>
+        </div>
+
+        <!-- Slide 5: Where The Money Goes -->
+        <div class="slide" id="slide-5">
+            <h2>Where Your Money Goes</h2>
+            <p style="margin-bottom: 20px;">Every dollar directly supports preservation and translation. No overhead bloat.</p>
+
+            <table class="budget-table">
+                <tr>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th class="amount">Amount</th>
+                    <th class="percent">%</th>
+                </tr>
+                <tr>
+                    <td><strong>Digitization</strong></td>
+                    <td>High-resolution scanning, image processing, archival storage</td>
+                    <td class="amount">$200,000</td>
+                    <td class="percent">40%</td>
+                </tr>
+                <tr>
+                    <td><strong>AI Translation</strong></td>
+                    <td>Machine translation, OCR, initial text processing</td>
+                    <td class="amount">$100,000</td>
+                    <td class="percent">20%</td>
+                </tr>
+                <tr>
+                    <td><strong>Expert Review</strong></td>
+                    <td>Classical scholars verify, annotate, and correct translations</td>
+                    <td class="amount">$125,000</td>
+                    <td class="percent">25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Publication</strong></td>
+                    <td>Digital platform, open access hosting, metadata</td>
+                    <td class="amount">$50,000</td>
+                    <td class="percent">10%</td>
+                </tr>
+                <tr>
+                    <td><strong>Operations</strong></td>
+                    <td>Project management, coordination with Amsterdam library</td>
+                    <td class="amount">$25,000</td>
+                    <td class="percent">5%</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td></td>
+                    <td class="amount">$500,000</td>
+                    <td class="percent">100%</td>
+                </tr>
+            </table>
+            <span class="slide-number">5</span>
+        </div>
+
+        <!-- Slide 6: Cost Per Unit -->
+        <div class="slide" id="slide-6">
+            <h2>What Each Dollar Accomplishes</h2>
+
+            <div class="impact-row">
+                <div class="impact-amount">$250</div>
+                <div class="impact-arrow">→</div>
+                <div class="impact-result">
+                    <h4>1 AI Translation Published</h4>
+                    <p>Complete machine translation of one Renaissance text, freely accessible online</p>
+                </div>
+            </div>
+
+            <div class="impact-row">
+                <div class="impact-amount">$500</div>
+                <div class="impact-arrow">→</div>
+                <div class="impact-result">
+                    <h4>1 Book Digitized</h4>
+                    <p>High-resolution scanning and digital preservation of one rare book, protected forever</p>
+                </div>
+            </div>
+
+            <div class="impact-row">
+                <div class="impact-amount">$1,000</div>
+                <div class="impact-arrow">→</div>
+                <div class="impact-result">
+                    <h4>1 Expert Translation</h4>
+                    <p>Scholar-supervised translation with review, annotation, and donor acknowledgment</p>
+                </div>
+            </div>
+
+            <div class="impact-row">
+                <div class="impact-amount">$2,500</div>
+                <div class="impact-arrow">→</div>
+                <div class="impact-result">
+                    <h4>1 Full Production</h4>
+                    <p>Complete digitization + expert translation, published with full scholarly apparatus</p>
+                </div>
+            </div>
+
+            <div class="impact-row">
+                <div class="impact-amount">$5,000+</div>
+                <div class="impact-arrow">→</div>
+                <div class="impact-result">
+                    <h4>Custom Research Project</h4>
+                    <p>Commission scholarly research on a topic of your choice from our collection</p>
+                </div>
+            </div>
+
+            <span class="slide-number">6</span>
+        </div>
+
+        <!-- Slide 7: Why Now -->
+        <div class="slide" id="slide-7">
+            <h2>Why This Matters Now</h2>
+
+            <div class="allocation-grid">
+                <div class="allocation-item">
+                    <h4>Physical Decay</h4>
+                    <p>These 500-year-old books are deteriorating. Every year we wait, pages crumble and knowledge is lost forever.</p>
+                </div>
+                <div class="allocation-item">
+                    <h4>AI Training Window</h4>
+                    <p>AI systems are being trained right now. Without these texts, AI will know Reddit but not Renaissance philosophy.</p>
+                </div>
+                <div class="allocation-item">
+                    <h4>Technology Ready</h4>
+                    <p>AI translation has finally reached the quality needed to work at scale. This wasn't possible 5 years ago.</p>
+                </div>
+                <div class="allocation-item">
+                    <h4>Scholarly Demand</h4>
+                    <p>Researchers worldwide need access to these texts. Open access accelerates human knowledge.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.4rem; margin-top: 30px; color: var(--accent);">
+                <strong>The time to act is now. The technology is ready. The need is urgent.</strong>
+            </p>
+            <span class="slide-number">7</span>
+        </div>
+
+        <!-- Slide 8: Matching Gift -->
+        <div class="slide" id="slide-8">
+            <h2>Year-End Matching Campaign</h2>
+
+            <div class="match-banner">
+                <h3>Every Dollar Doubled Up to $10,000</h3>
+                <p>Derek is personally matching all gifts through December 31, 2024</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="number">2x</span>
+                    <span class="label">Your gift is doubled</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">$10K</span>
+                    <span class="label">Match available</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">Dec 31</span>
+                    <span class="label">Deadline</span>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px;">
+                Give $500, we receive $1,000 — enough to digitize a rare book.<br>
+                Give $1,000, we receive $2,000 — funding an expert translation with your name attached.
+            </p>
+            <span class="slide-number">8</span>
+        </div>
+
+        <!-- Slide 9: Call to Action -->
+        <div class="slide cta" id="slide-9">
+            <h2>Join Us</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 20px;">
+                Be part of the largest Renaissance text digitization project in history.
+            </p>
+            <p>
+                Your tax-deductible gift preserves human wisdom,<br>
+                trains AI on the best of human thought,<br>
+                and makes knowledge free for everyone.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://ancientwisdomtrust.org/donate" class="cta-btn primary">Give Now</a>
+                <a href="mailto:derek@ancientwisdomtrust.org" class="cta-btn secondary">Contact Derek</a>
+            </div>
+            <p style="margin-top: 40px; font-size: 1rem;">
+                ancientwisdomtrust.org | derek@ancientwisdomtrust.org
+            </p>
+            <span class="slide-number">9</span>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="deck-nav">
+        <button onclick="prevSlide()">← Prev</button>
+        <span class="slide-indicator"><span id="current-slide">1</span> / 9</span>
+        <button onclick="nextSlide()">Next →</button>
+        <button onclick="toggleFullscreen()">Fullscreen</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 9;
+
+        function goToSlide(n) {
+            currentSlide = Math.max(1, Math.min(n, totalSlides));
+            document.getElementById(`slide-${currentSlide}`).scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('current-slide').textContent = currentSlide;
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'f') {
+                toggleFullscreen();
+            }
+        });
+
+        // Update slide number on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const slideNum = parseInt(entry.target.id.replace('slide-', ''));
+                    currentSlide = slideNum;
+                    document.getElementById('current-slide').textContent = slideNum;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.slide').forEach(slide => observer.observe(slide));
+    </script>
+</body>
+</html>
