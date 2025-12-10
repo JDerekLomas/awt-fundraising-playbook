@@ -230,8 +230,45 @@ function copyToClipboard(text) {
     });
 }
 
+// Mobile menu toggle
+function initMobileMenu() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+
+    if (toggle && sidebar) {
+        toggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            toggle.classList.toggle('active');
+            if (overlay) overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking overlay
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                toggle.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        }
+
+        // Close menu when clicking a nav link (mobile)
+        const navLinks = sidebar.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('open');
+                    toggle.classList.remove('active');
+                    if (overlay) overlay.classList.remove('active');
+                }
+            });
+        });
+    }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
     renderProspects();
     initAddProspectForm();
     initSearch();

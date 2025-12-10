@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="sidebar-overlay"></div>
     <nav class="sidebar">
         <div class="logo">
             <h2>AWT Playbook</h2>
@@ -14,7 +20,9 @@
         </div>
                 <ul class="nav-links">
             <li><a href="index.html">Dashboard</a></li>
-            <li><a href="quickstart.html" class="highlight-link">Start Tonight</a></li>
+            <li><a href="crm.html" class="highlight-link">CRM</a></li>
+            <li><a href="campaign.html">Campaign</a></li>
+            <li><a href="quickstart.html">Start Tonight</a></li>
             <li><a href="socials.html">Social Media</a></li>
             <li><a href="contacts.html">Contact Database</a></li>
             <li><a href="prospects.html">Prospect Tracker</a></li>
@@ -116,11 +124,11 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Partnerships</span>
-                            <span class="contact-name" id="anthropic-partnerships">Loading...</span>
+                            <span class="contact-name"><a href="mailto:partnerships@anthropic.com">partnerships@anthropic.com</a></span>
                         </div>
                         <div class="contact-card">
-                            <span class="contact-role">Policy Team</span>
-                            <span class="contact-name" id="anthropic-policy">Loading...</span>
+                            <span class="contact-role">General</span>
+                            <span class="contact-name"><a href="https://www.anthropic.com/contact" target="_blank">Contact Form</a></span>
                         </div>
                     </div>
                     <div class="company-links">
@@ -142,11 +150,11 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Partnerships</span>
-                            <span class="contact-name" id="openai-partnerships">Loading...</span>
+                            <span class="contact-name"><a href="https://openai.com/contact" target="_blank">Contact Form</a></span>
                         </div>
                         <div class="contact-card">
-                            <span class="contact-role">Policy</span>
-                            <span class="contact-name" id="openai-policy">Loading...</span>
+                            <span class="contact-role">Press/Policy</span>
+                            <span class="contact-name"><a href="mailto:press@openai.com">press@openai.com</a></span>
                         </div>
                     </div>
                     <div class="company-links">
@@ -168,11 +176,11 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Google.org</span>
-                            <span class="contact-name" id="google-org">Loading...</span>
+                            <span class="contact-name"><a href="https://www.google.org/contact/" target="_blank">Apply for Funding</a></span>
                         </div>
                         <div class="contact-card">
-                            <span class="contact-role">Google Arts & Culture</span>
-                            <span class="contact-name" id="google-arts">Loading...</span>
+                            <span class="contact-role">Arts & Culture</span>
+                            <span class="contact-name"><a href="https://about.artsandculture.google.com/partners/" target="_blank">Partner Form</a></span>
                         </div>
                     </div>
                     <div class="company-links">
@@ -194,11 +202,11 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">AI for Good</span>
-                            <span class="contact-name" id="microsoft-ai4good">Loading...</span>
+                            <span class="contact-name"><a href="https://www.microsoft.com/en-us/ai/ai-for-good" target="_blank">Apply Online</a></span>
                         </div>
                         <div class="contact-card">
                             <span class="contact-role">Philanthropies</span>
-                            <span class="contact-name" id="microsoft-phil">Loading...</span>
+                            <span class="contact-name"><a href="https://www.microsoft.com/en-us/nonprofits" target="_blank">Nonprofit Portal</a></span>
                         </div>
                     </div>
                     <div class="company-links">
@@ -220,11 +228,11 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">AI Research</span>
-                            <span class="contact-name" id="meta-ai">Loading...</span>
+                            <span class="contact-name"><a href="https://ai.meta.com/" target="_blank">Meta AI</a></span>
                         </div>
                         <div class="contact-card">
                             <span class="contact-role">Social Impact</span>
-                            <span class="contact-name" id="meta-social">Loading...</span>
+                            <span class="contact-name"><a href="https://about.meta.com/social-impact/" target="_blank">Social Impact</a></span>
                         </div>
                     </div>
                     <div class="company-links">
@@ -257,11 +265,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Penguin Classics</span>
-                            <span class="contact-name" id="prh-classics">Loading...</span>
+                            <span class="contact-name"><a href="https://www.penguin.co.uk/penguin-classics" target="_blank">Penguin Classics</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Contact</span>
+                            <span class="contact-name"><a href="https://www.penguinrandomhouse.com/about-us/contact-us" target="_blank">Contact Form</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://www.penguinrandomhouse.com" target="_blank">Website</a>
+                        <a href="https://www.linkedin.com/company/penguin-random-house/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
 
@@ -278,11 +291,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Academic</span>
-                            <span class="contact-name" id="oup-academic">Loading...</span>
+                            <span class="contact-name"><a href="https://global.oup.com/academic/contactus/" target="_blank">Contact Academic</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Philosophy</span>
+                            <span class="contact-name"><a href="https://academic.oup.com/journals/pages/philosophy" target="_blank">Philosophy Dept</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://global.oup.com" target="_blank">Website</a>
+                        <a href="https://www.linkedin.com/company/oxford-university-press/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
 
@@ -299,11 +317,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Partnerships</span>
-                            <span class="contact-name" id="jstor-partnerships">Loading...</span>
+                            <span class="contact-name"><a href="https://about.jstor.org/librarians/" target="_blank">Partnerships</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Contact</span>
+                            <span class="contact-name"><a href="https://support.jstor.org/hc/en-us" target="_blank">Contact Support</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://about.jstor.org" target="_blank">Website</a>
+                        <a href="https://www.linkedin.com/company/jstor/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -331,11 +354,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Cultural Affairs</span>
-                            <span class="contact-name" id="montblanc-culture">Loading...</span>
+                            <span class="contact-name"><a href="https://www.montblanc.com/en-us/cultural-patronage" target="_blank">Cultural Patronage</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Press</span>
+                            <span class="contact-name"><a href="https://www.montblanc.com/en-us/contact" target="_blank">Contact</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://www.montblanc.com" target="_blank">Website</a>
+                        <a href="https://www.linkedin.com/company/montblanc/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
 
@@ -352,11 +380,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Foundation</span>
-                            <span class="contact-name" id="cartier-foundation">Loading...</span>
+                            <span class="contact-name"><a href="https://www.fondationcartier.com/en/contact" target="_blank">Contact Foundation</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Press</span>
+                            <span class="contact-name"><a href="mailto:presse@fondation.cartier.com">presse@fondation.cartier.com</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://www.fondationcartier.com" target="_blank">Foundation Website</a>
+                        <a href="https://www.linkedin.com/company/fondation-cartier/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
 
@@ -373,11 +406,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Books & Manuscripts</span>
-                            <span class="contact-name" id="christies-books">Loading...</span>
+                            <span class="contact-name"><a href="https://www.christies.com/departments/books-and-manuscripts-66-1.aspx" target="_blank">Department</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Contact</span>
+                            <span class="contact-name"><a href="https://www.christies.com/about-us/contact" target="_blank">Contact Form</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://www.christies.com" target="_blank">Website</a>
+                        <a href="https://www.linkedin.com/company/christies/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
 
@@ -394,11 +432,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Books & Manuscripts</span>
-                            <span class="contact-name" id="sothebys-books">Loading...</span>
+                            <span class="contact-name"><a href="https://www.sothebys.com/en/departments/books-manuscripts" target="_blank">Department</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Contact</span>
+                            <span class="contact-name"><a href="https://www.sothebys.com/en/about/contact" target="_blank">Contact Form</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://www.sothebys.com" target="_blank">Website</a>
+                        <a href="https://www.linkedin.com/company/sothebys/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -425,12 +468,17 @@
                     <p class="company-why">Goldman Sachs Gives, arts and culture philanthropy</p>
                     <div class="company-contacts">
                         <div class="contact-card">
-                            <span class="contact-role">Foundation</span>
-                            <span class="contact-name" id="gs-foundation">Loading...</span>
+                            <span class="contact-role">GS Gives</span>
+                            <span class="contact-name"><a href="https://www.goldmansachs.com/our-firm/people-and-culture/goldman-sachs-gives/" target="_blank">GS Gives Program</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Contact</span>
+                            <span class="contact-name"><a href="https://www.goldmansachs.com/contact-us/" target="_blank">Contact Form</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://www.goldmansachs.com/citizenship/philanthropy/" target="_blank">Philanthropy</a>
+                        <a href="https://www.linkedin.com/company/goldman-sachs/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
 
@@ -447,11 +495,16 @@
                     <div class="company-contacts">
                         <div class="contact-card">
                             <span class="contact-role">Social Impact</span>
-                            <span class="contact-name" id="blackrock-social">Loading...</span>
+                            <span class="contact-name"><a href="https://www.blackrock.com/corporate/about-us/social-impact" target="_blank">Social Impact</a></span>
+                        </div>
+                        <div class="contact-card">
+                            <span class="contact-role">Foundation</span>
+                            <span class="contact-name"><a href="https://www.blackrock.com/corporate/about-us/blackrock-foundation" target="_blank">BlackRock Foundation</a></span>
                         </div>
                     </div>
                     <div class="company-links">
                         <a href="https://www.blackrock.com/corporate/about-us/social-impact" target="_blank">Social Impact</a>
+                        <a href="https://www.linkedin.com/company/blackrock/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
             </div>

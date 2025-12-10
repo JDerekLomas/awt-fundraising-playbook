@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="sidebar-overlay"></div>
     <nav class="sidebar">
         <div class="logo">
             <h2>AWT Playbook</h2>
@@ -14,7 +20,9 @@
         </div>
                 <ul class="nav-links">
             <li><a href="index.html">Dashboard</a></li>
-            <li><a href="quickstart.html" class="highlight-link">Start Tonight</a></li>
+            <li><a href="crm.html" class="highlight-link">CRM</a></li>
+            <li><a href="campaign.html">Campaign</a></li>
+            <li><a href="quickstart.html">Start Tonight</a></li>
             <li><a href="socials.html">Social Media</a></li>
             <li><a href="contacts.html">Contact Database</a></li>
             <li><a href="prospects.html">Prospect Tracker</a></li>
@@ -37,7 +45,7 @@
     <main class="content">
         <header class="page-header">
             <h1>Prospect Database</h1>
-            <p class="subtitle">Track and manage all donor prospects</p>
+            <p class="subtitle">View all contacts in table format. Use <a href="crm.html" style="color: var(--accent-rust);">CRM</a> for pipeline view & interaction tracking.</p>
         </header>
 
         <!-- CRM Setup Banner -->
@@ -181,19 +189,20 @@
     <script src="app.js"></script>
     <script>
         let crmReady = false;
+        let allProspects = [];
+        let currentFilter = 'all';
 
         // Check if Supabase tables exist
         async function checkCRMStatus() {
             try {
                 const { data, error } = await supabase.from('contacts').select('id').limit(1);
                 if (error && error.code === '42P01') {
-                    // Table doesn't exist
                     showSetupBanner();
                     return false;
                 }
                 crmReady = true;
                 hideSetupBanner();
-                loadProspects();
+                await loadProspects();
                 return true;
             } catch (e) {
                 console.log('CRM check failed:', e);
@@ -215,22 +224,73 @@
         async function loadProspects() {
             if (!crmReady) return;
 
-            const prospects = await AWTCRM.getContacts();
+            // Fetch all contacts
+            const { data: prospects, error } = await supabase
+                .from('contacts')
+                .select('*')
+                .order('priority', { ascending: false });
+
+            if (error) {
+                console.error('Error loading prospects:', error);
+                return;
+            }
+
+            allProspects = prospects || [];
+
+            // Also fetch last interaction date for each contact
+            const { data: interactions } = await supabase
+                .from('interactions')
+                .select('contact_id, created_at')
+                .order('created_at', { ascending: false });
+
+            // Create a map of contact_id -> last interaction date
+            const lastInteractionMap = {};
+            if (interactions) {
+                interactions.forEach(i => {
+                    if (!lastInteractionMap[i.contact_id]) {
+                        lastInteractionMap[i.contact_id] = i.created_at;
+                    }
+                });
+            }
+
+            // Add last interaction to each prospect
+            allProspects.forEach(p => {
+                p.last_interaction = lastInteractionMap[p.id] || null;
+            });
+
+            renderProspects();
+        }
+
+        function renderProspects() {
             const tbody = document.getElementById('prospects-body');
 
-            if (prospects.length === 0) {
+            // Filter by current tab
+            let filtered = allProspects;
+            if (currentFilter !== 'all') {
+                const categoryMap = {
+                    'individuals': 'individual',
+                    'foundations': 'foundation',
+                    'corporate': 'corporate'
+                };
+                const cat = categoryMap[currentFilter] || currentFilter;
+                filtered = allProspects.filter(p => p.category === cat);
+            }
+
+            if (filtered.length === 0) {
                 tbody.innerHTML = `
                     <tr>
                         <td colspan="7" style="text-align: center; padding: 40px;">
-                            No prospects yet. <a href="#" onclick="openAddProspect(); return false;">Add your first prospect</a>
+                            ${currentFilter === 'all'
+                                ? 'No prospects yet. <a href="#" onclick="openAddProspect(); return false;">Add your first prospect</a>'
+                                : `No ${currentFilter} found.`}
                         </td>
                     </tr>
                 `;
                 return;
             }
 
-            tbody.innerHTML = prospects.map(p => `
-                <tr>
+            tbody.innerHTML = filtered.map(p => `
+                <tr data-id="${p.id}">
                     <td>
                         <strong>${p.name}</strong>
                         ${p.organization ? `<br><span class="text-muted">${p.organization}</span>` : ''}
@@ -242,10 +302,10 @@
                     </td>
                     <td>$${(p.estimated_amount || 0).toLocaleString()}</td>
                     <td><span class="badge badge-${getStatusBadge(p.status)}">${p.status}</span></td>
-                    <td>${p.updated_at ? new Date(p.updated_at).toLocaleDateString() : '-'}</td>
+                    <td>${p.last_interaction ? new Date(p.last_interaction).toLocaleDateString() : '<span class="text-muted">Never</span>'}</td>
                     <td>
                         <button class="btn btn-sm" onclick="editProspect('${p.id}')">Edit</button>
-                        <button class="btn btn-sm" onclick="logInteraction('${p.id}')">Log</button>
+                        <button class="btn btn-sm btn-primary" onclick="logInteraction('${p.id}')">Log</button>
                     </td>
                 </tr>
             `).join('');
@@ -272,15 +332,8 @@
         function showTab(tab) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
-            filterProspects(tab);
-        }
-
-        async function filterProspects(category) {
-            if (!crmReady) return;
-            const filter = category === 'all' ? {} : { category };
-            const prospects = await AWTCRM.getContacts(filter);
-            // Update table...
-            loadProspects();
+            currentFilter = tab;
+            renderProspects();
         }
 
         // Handle form submission
@@ -302,9 +355,8 @@
 
             if (crmReady) {
                 await AWTCRM.addContact(prospect);
-                loadProspects();
+                await loadProspects();
             } else {
-                // Fallback to localStorage
                 const prospects = JSON.parse(localStorage.getItem('awt_prospects') || '[]');
                 prospects.push({ ...prospect, id: Date.now(), created_at: new Date().toISOString() });
                 localStorage.setItem('awt_prospects', JSON.stringify(prospects));
@@ -327,13 +379,13 @@
         }
 
         function editProspect(id) {
-            // TODO: implement edit modal
-            alert('Edit functionality coming soon');
+            // Redirect to CRM with contact detail open
+            window.location.href = `crm.html?contact=${id}`;
         }
 
         function logInteraction(id) {
-            // TODO: implement interaction logging
-            alert('Interaction logging coming soon');
+            // Redirect to CRM with log modal open
+            window.location.href = `crm.html?log=${id}`;
         }
 
         // Initialize
