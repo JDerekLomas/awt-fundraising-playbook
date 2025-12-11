@@ -45,6 +45,18 @@
     </nav>
 
     <main class="content">
+        <!-- Password Protection -->
+        <div id="password-gate" style="display: flex; align-items: center; justify-content: center; min-height: 60vh;">
+            <div style="background: var(--bg-white); padding: 40px; border-radius: 12px; text-align: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 1px solid var(--border);">
+                <h2 style="margin-bottom: 8px;">Protected Page</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Enter password to access Foundations</p>
+                <input type="password" id="page-password" placeholder="Password" style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; margin-bottom: 12px; box-sizing: border-box;" onkeypress="if(event.key==='Enter')checkPassword()">
+                <button onclick="checkPassword()" style="width: 100%; padding: 12px; background: var(--accent); color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer;">Enter</button>
+                <p id="password-error" style="color: #e53e3e; margin-top: 12px; display: none;">Incorrect password</p>
+            </div>
+        </div>
+
+        <div id="protected-content" style="display: none;">
         <header class="page-header">
             <h1>Foundations & Grants</h1>
             <p class="subtitle">Target foundations with contact information and application details</p>
@@ -620,6 +632,26 @@
                 </div>
             </div>
         </section>
+        </div><!-- end protected-content -->
+
+    <script>
+        function checkPassword() {
+            const pwd = document.getElementById('page-password').value;
+            if (pwd === '11235813') {
+                unlockPage();
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+            }
+        }
+        function unlockPage() {
+            document.getElementById('password-gate').style.display = 'none';
+            document.getElementById('protected-content').style.display = 'block';
+            sessionStorage.setItem('awt-protected-auth', 'true');
+        }
+        if (sessionStorage.getItem('awt-protected-auth') === 'true') {
+            unlockPage();
+        }
+    </script>
     </main>
 
     <script src="app.js"></script>
