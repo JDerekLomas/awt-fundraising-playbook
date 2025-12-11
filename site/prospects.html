@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Password Protection Overlay -->
+    <div id="password-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-paper); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+        <div style="background: var(--bg-white); padding: 40px; border-radius: 12px; text-align: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom: 8px;">Protected Page</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Enter password to access Prospect Tracker</p>
+            <input type="password" id="page-password" placeholder="Password" style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; margin-bottom: 12px;" onkeypress="if(event.key==='Enter')checkPassword()">
+            <button onclick="checkPassword()" style="width: 100%; padding: 12px; background: var(--accent); color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer;">Enter</button>
+            <p id="password-error" style="color: var(--danger); margin-top: 12px; display: none;">Incorrect password</p>
+        </div>
+    </div>
+    <script>
+        function checkPassword() {
+            const pwd = document.getElementById('page-password').value;
+            if (pwd === '11235813') {
+                document.getElementById('password-overlay').style.display = 'none';
+                sessionStorage.setItem('awt-prospects-auth', 'true');
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+            }
+        }
+        if (sessionStorage.getItem('awt-prospects-auth') === 'true') {
+            document.getElementById('password-overlay').style.display = 'none';
+        }
+    </script>
+
     <button class="mobile-menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -32,6 +57,7 @@
             <li><a href="strategy.html">Strategy</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="deck.html">Pitch Deck</a></li>
+            <li><a href="ambassador-onboarding.html">Ambassador Guide</a></li>
         </ul>
 
         <div class="campaign-goal">
