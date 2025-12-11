@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <style>
+        .protected-content { display: none; }
+        .protected-content.unlocked { display: block; }
+        .sidebar.unlocked, .content.unlocked { display: flex; }
+        .content.unlocked { display: block; }
+    </style>
+
     <!-- Password Protection Overlay -->
     <div id="password-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-paper); z-index: 9999; display: flex; align-items: center; justify-content: center;">
         <div style="background: var(--bg-white); padding: 40px; border-radius: 12px; text-align: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
@@ -21,24 +28,28 @@
         function checkPassword() {
             const pwd = document.getElementById('page-password').value;
             if (pwd === '11235813') {
-                document.getElementById('password-overlay').style.display = 'none';
-                sessionStorage.setItem('awt-prospects-auth', 'true');
+                unlockPage();
             } else {
                 document.getElementById('password-error').style.display = 'block';
             }
         }
-        if (sessionStorage.getItem('awt-prospects-auth') === 'true') {
+        function unlockPage() {
             document.getElementById('password-overlay').style.display = 'none';
+            document.querySelectorAll('.protected-content').forEach(el => el.classList.add('unlocked'));
+            sessionStorage.setItem('awt-prospects-auth', 'true');
+        }
+        if (sessionStorage.getItem('awt-prospects-auth') === 'true') {
+            unlockPage();
         }
     </script>
 
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+    <button class="mobile-menu-toggle protected-content" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
     </button>
-    <div class="sidebar-overlay"></div>
-    <nav class="sidebar">
+    <div class="sidebar-overlay protected-content"></div>
+    <nav class="sidebar protected-content">
         <div class="logo">
             <h2>AWT Playbook</h2>
             <p class="tagline">Fundraising Campaign</p>
@@ -69,7 +80,7 @@
         </div>
     </nav>
 
-    <main class="content">
+    <main class="content protected-content">
         <header class="page-header">
             <h1>Prospect Database</h1>
             <p class="subtitle">View all contacts in table format. Use <a href="crm.html" style="color: var(--accent-rust);">CRM</a> for pipeline view & interaction tracking.</p>
