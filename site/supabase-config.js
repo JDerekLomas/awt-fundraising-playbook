@@ -3,13 +3,15 @@ const SUPABASE_URL = 'https://jmivthevbgxfnetmgjca.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptaXZ0aGV2Ymd4Zm5ldG1namNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzMTkwMDEsImV4cCI6MjA4MDg5NTAwMX0.Nl5cDvOX-PGmi1KZjrnuOdA_6ZxnYim1WIRZ8Ogus-g';
 
 // Initialize Supabase client
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Alias for backward compatibility
+window.supabaseClient = supabaseClient;
 
 // CRM Functions
 const AWTCRM = {
     // Contacts
     async getContacts(filters = {}) {
-        let query = supabase.from('contacts').select('*');
+        let query = supabaseClient.from('contacts').select('*');
         if (filters.category) query = query.eq('category', filters.category);
         if (filters.status) query = query.eq('status', filters.status);
         if (filters.priority) query = query.gte('priority', filters.priority);
@@ -19,20 +21,20 @@ const AWTCRM = {
     },
 
     async addContact(contact) {
-        const { data, error } = await supabase.from('contacts').insert([contact]).select();
+        const { data, error } = await supabaseClient.from('contacts').insert([contact]).select();
         if (error) console.error('Error adding contact:', error);
         return data?.[0];
     },
 
     async updateContact(id, updates) {
-        const { data, error } = await supabase.from('contacts').update(updates).eq('id', id).select();
+        const { data, error } = await supabaseClient.from('contacts').update(updates).eq('id', id).select();
         if (error) console.error('Error updating contact:', error);
         return data?.[0];
     },
 
     // Interactions
     async logInteraction(interaction) {
-        const { data, error } = await supabase.from('interactions').insert([{
+        const { data, error } = await supabaseClient.from('interactions').insert([{
             ...interaction,
             created_at: new Date().toISOString()
         }]).select();
@@ -66,7 +68,7 @@ const AWTCRM = {
     },
 
     async addFollowUp(followUp) {
-        const { data, error } = await supabase.from('follow_ups').insert([followUp]).select();
+        const { data, error } = await supabaseClient.from('follow_ups').insert([followUp]).select();
         if (error) console.error('Error adding follow-up:', error);
         return data?.[0];
     },
@@ -83,7 +85,7 @@ const AWTCRM = {
 
     // Donations
     async logDonation(donation) {
-        const { data, error } = await supabase.from('donations').insert([{
+        const { data, error } = await supabaseClient.from('donations').insert([{
             ...donation,
             created_at: new Date().toISOString()
         }]).select();
@@ -172,7 +174,7 @@ const AWTCRM = {
             created_at: p.created_at || new Date().toISOString()
         }));
 
-        const { data, error } = await supabase.from('contacts').insert(contacts).select();
+        const { data, error } = await supabaseClient.from('contacts').insert(contacts).select();
         if (error) {
             console.error('Migration error:', error);
             return { migrated: 0, error };

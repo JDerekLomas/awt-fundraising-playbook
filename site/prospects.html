@@ -227,7 +227,7 @@
         // Check if Supabase tables exist
         async function checkCRMStatus() {
             try {
-                const { data, error } = await supabase.from('contacts').select('id').limit(1);
+                const { data, error } = await supabaseClient.from('contacts').select('id').limit(1);
                 if (error) {
                     console.error('Supabase error:', error);
                     showSetupBanner();

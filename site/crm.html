@@ -826,7 +826,7 @@
             dueDate.setDate(dueDate.getDate() + parseInt(daysOut || 3));
 
             try {
-                await supabase.from('follow_ups').insert([{
+                await supabaseClient.from('follow_ups').insert([{
                     contact_id: contactId,
                     task: task,
                     due_date: dueDate.toISOString().split('T')[0],
@@ -912,7 +912,7 @@
                     }
 
                     // Log interaction
-                    await supabase.from('interactions').insert([{
+                    await supabaseClient.from('interactions').insert([{
                         contact_id: contactId,
                         type: formData.get('type'),
                         outcome: formData.get('outcome'),
@@ -941,7 +941,7 @@
                         const dueDate = new Date();
                         dueDate.setDate(dueDate.getDate() + parseInt(formData.get('followup_days')));
 
-                        await supabase.from('follow_ups').insert([{
+                        await supabaseClient.from('follow_ups').insert([{
                             contact_id: contactId,
                             task: `Follow up on ${formData.get('type')}`,
                             due_date: dueDate.toISOString().split('T')[0],
