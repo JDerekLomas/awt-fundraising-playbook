@@ -1,4 +1,5 @@
 // Supabase Configuration for AWT Fundraising CRM
+// Updated: 2025-12-17
 const SUPABASE_URL = 'https://jmivthevbgxfnetmgjca.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptaXZ0aGV2Ymd4Zm5ldG1namNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzMTkwMDEsImV4cCI6MjA4MDg5NTAwMX0.Nl5cDvOX-PGmi1KZjrnuOdA_6ZxnYim1WIRZ8Ogus-g';
 
