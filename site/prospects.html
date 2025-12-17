@@ -228,7 +228,8 @@
         async function checkCRMStatus() {
             try {
                 const { data, error } = await supabase.from('contacts').select('id').limit(1);
-                if (error && error.code === '42P01') {
+                if (error) {
+                    console.error('Supabase error:', error);
                     showSetupBanner();
                     return false;
                 }
@@ -237,7 +238,7 @@
                 await loadProspects();
                 return true;
             } catch (e) {
-                console.log('CRM check failed:', e);
+                console.error('CRM check failed:', e);
                 showSetupBanner();
                 return false;
             }
