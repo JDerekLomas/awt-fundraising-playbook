@@ -424,7 +424,7 @@
         async function loadDashboard() {
             try {
                 // Load contacts
-                const { data: contacts, error } = await supabase
+                const { data: contacts, error } = await supabaseClient
                     .from('contacts')
                     .select('*')
                     .order('priority', { ascending: false });
@@ -620,7 +620,7 @@
 
         async function loadTasks() {
             try {
-                const { data: tasks, error } = await supabase
+                const { data: tasks, error } = await supabaseClient
                     .from('follow_ups')
                     .select('*, contacts(name)')
                     .eq('completed', false)
@@ -662,7 +662,7 @@
 
         async function loadRecentActivity() {
             try {
-                const { data: interactions, error } = await supabase
+                const { data: interactions, error } = await supabaseClient
                     .from('interactions')
                     .select('*, contacts(name)')
                     .order('created_at', { ascending: false })
@@ -771,7 +771,7 @@
 
         async function loadContactTimeline(contactId) {
             try {
-                const { data: interactions, error } = await supabase
+                const { data: interactions, error } = await supabaseClient
                     .from('interactions')
                     .select('*')
                     .eq('contact_id', contactId)
@@ -842,7 +842,7 @@
 
         async function completeTask(taskId) {
             try {
-                await supabase
+                await supabaseClient
                     .from('follow_ups')
                     .update({ completed: true, completed_at: new Date().toISOString() })
                     .eq('id', taskId);
@@ -888,7 +888,7 @@
                             contactId = existingContact.id;
                         } else {
                             // Create new contact
-                            const { data: newContact, error: createError } = await supabase
+                            const { data: newContact, error: createError } = await supabaseClient
                                 .from('contacts')
                                 .insert([{
                                     name: contactName,
@@ -923,13 +923,13 @@
                     if (!isNewContact) {
                         const newStatus = formData.get('new_status');
                         if (newStatus) {
-                            await supabase
+                            await supabaseClient
                                 .from('contacts')
                                 .update({ status: newStatus, updated_at: new Date().toISOString() })
                                 .eq('id', contactId);
                         } else {
                             // Just update the timestamp
-                            await supabase
+                            await supabaseClient
                                 .from('contacts')
                                 .update({ updated_at: new Date().toISOString() })
                                 .eq('id', contactId);

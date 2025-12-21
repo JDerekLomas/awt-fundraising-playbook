@@ -44,7 +44,7 @@ const AWTCRM = {
     },
 
     async getInteractions(contactId) {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('interactions')
             .select('*')
             .eq('contact_id', contactId)
@@ -58,7 +58,7 @@ const AWTCRM = {
         const futureDate = new Date();
         futureDate.setDate(futureDate.getDate() + days);
 
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('follow_ups')
             .select('*, contacts(name, email)')
             .lte('due_date', futureDate.toISOString())
@@ -75,7 +75,7 @@ const AWTCRM = {
     },
 
     async completeFollowUp(id) {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('follow_ups')
             .update({ completed: true, completed_at: new Date().toISOString() })
             .eq('id', id)
@@ -95,7 +95,7 @@ const AWTCRM = {
     },
 
     async getDonationStats() {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('donations')
             .select('amount, status');
         if (error) console.error('Error fetching donations:', error);
@@ -121,7 +121,7 @@ const AWTCRM = {
 
     // Pipeline summary
     async getPipelineSummary() {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('contacts')
             .select('status, estimated_amount');
         if (error) console.error('Error fetching pipeline:', error);
@@ -147,7 +147,7 @@ const AWTCRM = {
 
     // Search
     async searchContacts(query) {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('contacts')
             .select('*')
             .or(`name.ilike.%${query}%,organization.ilike.%${query}%,notes.ilike.%${query}%`);
